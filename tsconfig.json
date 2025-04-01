@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Next.js", // Display name for the configuration
   "compilerOptions": {
-    "target": "es5", // Specifies the target ECMAScript version
+    "target": "ES6", // Specifies the target ECMAScript version
     "lib": ["dom", "dom.iterable", "esnext"], // List of library files to be included in the compilation
     "allowJs": true, // Allow JavaScript files to be compiled
     "skipLibCheck": true, // Skip type checking of declaration files
@@ -11,8 +11,8 @@
     "forceConsistentCasingInFileNames": true, // Ensure consistent casing in file names
     "noEmit": true, // Do not emit outputs
     "esModuleInterop": true, // Enable interoperability between CommonJS and ES Modules
-    "module": "esnext", // Specify module code generation
-    "moduleResolution": "node", // Specify module resolution strategy
+    "module": "nodenext", // Specify module code generation
+    "moduleResolution": "nodenext", // Specify module resolution strategy
     "resolveJsonModule": true, // Include modules imported with .json extension
     "isolatedModules": true, // Ensure each file is treated as a separate module
     "jsx": "preserve", // Specify JSX code generation
