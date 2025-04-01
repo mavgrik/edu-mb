@@ -1,0 +1,77 @@
+{
+  "name": "edu-mb",
+  "version": "0.1.0",
+  "description": "Web application of A.S.D. Compagnia Arcieri Scaligeri di Verona",
+  "packageManager": "pnpm@10.7.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mavgrik/edu-mb.git"
+  },
+  "authors": [
+    {
+      "name": "mavgrik",
+      "email": "dev@mavgrik.net"
+    },
+    {
+      "name": "matteohv",
+      "email": "matteo.benini.scuola@gmail.com"
+    }
+  ],
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
+    "prettier:fix": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
+    "check": "next lint && prettier --check \"**/*.{js,jsx,ts,tsx}\"",
+    "fix": "next lint --fix && prettier --write \"**/*.{js,jsx,ts,tsx}\""
+  },
+  "dependencies": {
+    "@cloudflare/next-on-pages": "1.13.11",
+    "@icons-pack/react-simple-icons": "12.3.0",
+    "@radix-ui/react-accordion": "1.2.3",
+    "@radix-ui/react-dialog": "1.1.6",
+    "@radix-ui/react-navigation-menu": "1.2.5",
+    "@radix-ui/react-separator": "1.1.2",
+    "@radix-ui/react-slot": "1.1.2",
+    "@radix-ui/react-visually-hidden": "1.1.2",
+    "@tailwindcss/postcss": "4.0.17",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "lucide-react": "0.486.0",
+    "next": "15.2.4",
+    "next-themes": "0.4.6",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "tailwind-merge": "3.1.0",
+    "tailwindcss-animate": "1.0.7"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.20250327.0",
+    "@total-typescript/ts-reset": "0.6.1",
+    "@types/node": "22.13.15",
+    "@types/react": "19.0.12",
+    "@types/react-dom": "19.0.4",
+    "@typescript-eslint/eslint-plugin": "8.29.0",
+    "@typescript-eslint/parser": "8.29.0",
+    "autoprefixer": "10.4.21",
+    "eslint": "9.23.0",
+    "eslint-config-next": "15.2.4",
+    "eslint-config-prettier": "10.1.1",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-react": "7.37.4",
+    "eslint-plugin-tailwindcss": "3.18.0",
+    "postcss": "8.5.3",
+    "prettier": "3.5.3",
+    "prettier-plugin-tailwindcss": "0.6.11",
+    "tailwindcss": "4.0.17",
+    "typescript": "5.8.2"
+  },
+  "engines": {
+    "node": ">=23.0.0"
+  }
+}

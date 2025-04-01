@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /app
+
+Sitemap: https://edu-mb.mavgrik.net/sitemap.xml

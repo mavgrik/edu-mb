@@ -1,0 +1,26 @@
+# dependencies
+/node_modules
+
+# vercel link
+/.vercel/
+
+# next.js
+/.next/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+.pnpm-debug.log*
+
+# env files
+.env*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# wrangler files
+.wrangler
+.dev.vars*
