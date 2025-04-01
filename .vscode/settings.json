@@ -7,7 +7,8 @@
     "mavgrik",
     "shadcn",
     "mb",
-    "matteohv"
+    "matteohv",
+    "nodenext"
   ],
   "cSpell.ignorePaths": [
     "pnpm-lock.yaml",

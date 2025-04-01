@@ -1,67 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`c3`](https://developers.cloudflare.com/pages/get-started/c3).
+//TODO: Add a description of the project
+//TODO: Add project developers
 
-## Getting Started
+## License
 
-First, run the development server:
+This project is under the [MIT](https://opensource.org/licenses/MIT) license, for more information see the [LICENSE.md](LICENSE.md) file.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Project structure
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The project is structured as follows:
 
-## Cloudflare integration
+- `app/`: contains the source code of the website
+- `public/`: contains the public files of the website
+- `components/`: contains the UI components of the website
+- `lib/`: contains the utility functions of the website
+- `LICENSE.md`: contains the license of the project
+- `README.md`: contains the information about the project
 
-Besides the `dev` script mentioned above `c3` has added a few extra scripts that allow you to integrate the application with the [Cloudflare Pages](https://pages.cloudflare.com/) environment, these are:
-  - `pages:build` to build the application for Pages using the [`@cloudflare/next-on-pages`](https://github.com/cloudflare/next-on-pages) CLI
-  - `preview` to locally preview your Pages application using the [Wrangler](https://developers.cloudflare.com/workers/wrangler/) CLI
-  - `deploy` to deploy your Pages application using the [Wrangler](https://developers.cloudflare.com/workers/wrangler/) CLI
+## Project setup
 
-> __Note:__ while the `dev` script is optimal for local development you should preview your Pages application as well (periodically or before deployments) in order to make sure that it can properly work in the Pages environment (for more details see the [`@cloudflare/next-on-pages` recommended workflow](https://github.com/cloudflare/next-on-pages/blob/main/internal-packages/next-dev/README.md#recommended-development-workflow))
+To run the website locally follow these steps:
 
-### Bindings
+1. Clone the repository
+2. Ensure you have [pnpm](https://pnpm.io) installed
+3. Install all the dependencies with `pnpm install`
+4. Run the development server with `pnpm dev`
 
-Cloudflare [Bindings](https://developers.cloudflare.com/pages/functions/bindings/) are what allows you to interact with resources available in the Cloudflare Platform.
+## Project hosting
 
-You can use bindings during development, when previewing locally your application and of course in the deployed application:
+The project is hosted on [Vercel](https://vercel.com) and is available at [edu-mb.mavgrik.net](https://edu-mb.mavgrik.net)
+A preview of the website for authorized users is available at [preview.edu-mb.mavgrik.net](https://preview.edu-mb.mavgrik.net)
 
-- To use bindings in dev mode you need to define them in the `next.config.js` file under `setupDevBindings`, this mode uses the `next-dev` `@cloudflare/next-on-pages` submodule. For more details see its [documentation](https://github.com/cloudflare/next-on-pages/blob/05b6256/internal-packages/next-dev/README.md).
+## Project technologies
 
-- To use bindings in the preview mode you need to add them to the `pages:preview` script accordingly to the `wrangler pages dev` command. For more details see its [documentation](https://developers.cloudflare.com/workers/wrangler/commands/#dev-1) or the [Pages Bindings documentation](https://developers.cloudflare.com/pages/functions/bindings/).
+The project uses the Next.js framework with TypeScript and TailwindCSS.
+Next.js handles the routing, the server-side rendering, the static site generation and caching.
+For handling code compilation is used the [Next.js SWC compiler](https://nextjs.org/docs/architecture/nextjs-compiler), that has been configured in the `next.config.js` file for compressing, optimizing and masking the source code.
 
-- To use bindings in the deployed application you will need to configure them in the Cloudflare [dashboard](https://dash.cloudflare.com/). For more details see the  [Pages Bindings documentation](https://developers.cloudflare.com/pages/functions/bindings/).
+## Project tools
 
-#### KV Example
+The project uses the following tools:
 
-`c3` has added for you an example showing how you can use a KV binding.
-
-In order to enable the example:
-- Search for javascript/typescript lines containing the following comment:
-  ```ts
-  // KV Example:
-  ```
-  and uncomment the commented lines below it (also uncomment the relevant imports).
-- In the `wrangler.jsonc` file add the following configuration line:
-  ```
-  "kv_namespaces": [{ "binding": "MY_KV_NAMESPACE", "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" }],
-  ```
-- If you're using TypeScript run the `cf-typegen` script to update the `env.d.ts` file:
-  ```bash
-  npm run cf-typegen
-  # or
-  yarn cf-typegen
-  # or
-  pnpm cf-typegen
-  # or
-  bun cf-typegen
-  ```
-
-After doing this you can run the `dev` or `preview` script and visit the `/api/hello` route to see the example in action.
-
-Finally, if you also want to see the example work in the deployed application make sure to add a `MY_KV_NAMESPACE` binding to your Pages application in its [dashboard kv bindings settings section](https://dash.cloudflare.com/?to=/:account/pages/view/:pages-project/settings/functions#kv_namespace_bindings_section). After having configured it make sure to re-deploy your application.
+- [pnpm](https://pnpm.io) for managing the dependencies
+- [Vercel](https://vercel.com) for hosting the website
+- [GitHub](https://github.com) for versioning the project
+- [GitHub Actions](https://github.com/features/actions) for CI/CD pipelines
+- [Next.js](https://nextjs.org) for building the website
+- [TailwindCSS](https://tailwindcss.com) for styling the website
+- [PostCSS](https://postcss.org) for processing the CSS
+- [shadcn/ui](https://ui.shadcn.com) for the UI components
+- [TypeScript](https://www.typescriptlang.org) for writing the code
+- [SWC](https://swc.rs) for compiling the code
+- [ESLint](https://eslint.org) for linting the code
+- [Prettier](https://prettier.io) for formatting the code
