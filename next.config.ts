@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 // Define the Next.js configuration
 const nextConfig: NextConfig = {
