@@ -4,12 +4,9 @@ const fs = require('fs');
 
 module.exports = {
   // Extend ESLint configurations from 'next', 'prettier', 'eslint:recommended', and '@typescript-eslint/recommended'
-  extends: ['next', 'prettier', 'eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:eslint-plugin-next-on-pages/recommended'],
+  extends: ['next', 'prettier', 'eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   // Add plugins for TypeScript
-  plugins: [
-    '@typescript-eslint',
-    'eslint-plugin-next-on-pages'
-  ],
+  plugins: ['@typescript-eslint'],
   // Use '@typescript-eslint/parser' as the parser
   parser: '@typescript-eslint/parser',
   // Define custom rules

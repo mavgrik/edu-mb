@@ -17,10 +17,7 @@
     "isolatedModules": true, // Ensure each file is treated as a separate module
     "jsx": "preserve", // Specify JSX code generation
     "incremental": true, // Enable incremental compilation
-    "types": [ // Specify type definitions to include
-        "@cloudflare/workers-types/2023-07-01",
-        "node"
-    ],
+    "types": ["node"], // Specify type definitions to include
     "plugins": [
       {
         "name": "next"
