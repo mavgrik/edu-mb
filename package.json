@@ -1,7 +1,7 @@
 {
   "name": "edu-mb",
   "version": "0.1.0",
-  "description": "Web application of A.S.D. Compagnia Arcieri Scaligeri di Verona",
+  "description": "Web application for managing and tracking air pollution",
   "packageManager": "pnpm@10.7.0",
   "license": "MIT",
   "repository": {
