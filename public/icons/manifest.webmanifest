@@ -1,0 +1,13 @@
+{
+    "name": "Siccità in Pianura Padana",
+    "short_name": "Siccità in Pianura Padana",
+    "description": "Monitoraggio e analisi della crisi idrica 2022-23 nella Pianura Padana attraverso dati satellitari e rilevazioni sul campo",
+    "start_url": "/",
+    "display": "standalone",
+    "id": "net.mavgrik.edu-mb",
+    "icons": [
+        { "src": "./icon-192.png", "type": "image/png", "sizes": "192x192" },
+        { "src": "./icon-mask.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" },
+        { "src": "./icon-512.png", "type": "image/png", "sizes": "512x512" }
+    ]
+}

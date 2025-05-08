@@ -1,13 +1,141 @@
 import './globals.css';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import type { Metadata, Viewport } from 'next';
+import { Baloo_2, Signika } from 'next/font/google';
+// import { Footer } from '@/components/footer';
+// import { Navbar } from '@/components/navbar';
+import { ThemeProvider } from '@/components/theme-provider';
 
+// Metadata configuration for the application
+export const metadata: Metadata = {
+  generator: 'Next.js', // Generator of the site
+  applicationName: 'Siccità in Pianura Padana', // Name of the application
+  referrer: 'strict-origin', // Referrer policy
+  keywords: [
+    // Keywords for SEO
+    'siccità',
+    'pianura padana',
+    'crisi idrica',
+    'monitoraggio',
+    'dati satellitari',
+    'rilevazioni sul campo',
+    'analisi',
+    'ambiente',
+    'clima',
+    'cambiamento climatico',
+    'risorse idriche',
+    'conservazione',
+    'gestione delle risorse idriche',
+  ],
+  authors: [
+    { name: 'mavgrik', url: 'https://tree.mavgrik.net' },
+    { name: 'matteohv', url: 'mailto://matteo.benini.scuola@gmail.com' },
+  ], // Author information
+  formatDetection: {
+    email: false, // Disable email detection
+    address: true, // Enable address detection
+    telephone: true, // Enable telephone detection
+  },
+  robots: {
+    // Robots meta tag configuration
+    index: true, // Allow indexing
+    follow: true, // Allow following links
+    nocache: false, // Disable no-cache
+    googleBot: {
+      index: true, // Allow Google bot to index
+      follow: false, // Disallow Google bot to follow links
+      noimageindex: false, // Allow Google bot to index images
+      'max-video-preview': -1, // No limit on video preview
+      'max-image-preview': 'large', // Large image preview
+      'max-snippet': 1, // Maximum snippet length
+    },
+  },
+  title: 'Siccità in Pianura Padana', // Title of the site
+  description:
+    'Monitoraggio e analisi della crisi idrica 2022-23 nella Pianura Padana attraverso dati satellitari e rilevazioni sul campo', // Description of the site
+  icons: {
+    // Icons configuration
+    icon: [
+      { url: '/icons/icon.svg', type: 'image/svg+xml', sizes: 'any' }, // SVG icon
+      { url: '/icons/favicon.ico', type: 'image/x-icon', sizes: '32x32' }, // Favicon
+    ],
+    apple: { url: '/icons/apple-touch-icon.png', type: 'image/png', sizes: '180x180' }, // Apple touch icon
+  },
+  manifest: '/icons/manifest.webmanifest', // Web manifest file
+  category: 'Education', // Category of the site
+};
+
+const baloo = Baloo_2({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-baloo',
+  weight: '400',
+  style: 'normal',
+});
+
+const signika = Signika({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-signika',
+  weight: '600',
+  style: 'normal',
+});
+
+export const viewport: Viewport = {
+  initialScale: 1, // Set the initial scale to 1
+  maximumScale: 1, // Disable auto-zoom on mobile Safari
+  width: 'device-width', // Set the viewport width to the device width
+  height: 'device-height', // Set the viewport height to the device height
+};
+
+const LIGHT_THEME_COLOR = '#ffffff';
+const DARK_THEME_COLOR = '#0a0a0a';
+const THEME_COLOR_SCRIPT = `\
+(function() {
+  var html = document.documentElement;
+  var meta = document.querySelector('meta[name="theme-color"]');
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.setAttribute('name', 'theme-color');
+    document.head.appendChild(meta);
+  }
+  function updateThemeColor() {
+    var isDark = html.classList.contains('dark');
+    meta.setAttribute('content', isDark ? '${DARK_THEME_COLOR}' : '${LIGHT_THEME_COLOR}');
+  }
+  var observer = new MutationObserver(updateThemeColor);
+  observer.observe(html, { attributes: true, attributeFilter: ['class'] });
+  updateThemeColor();
+})();`;
+
+// Root layout component
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="it" suppressHydrationWarning>
+      <head>
+        <script
+          //skipcq: JS-0440
+          dangerouslySetInnerHTML={{
+            __html: THEME_COLOR_SCRIPT,
+          }}
+        />
+      </head>
+      <body className={`${baloo.variable} ${signika.variable}`}>
+        <div className="bg-background">
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            {/* <Navbar /> */}
+            <main className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">{children}</main>
+            {/* <Footer /> */}
+          </ThemeProvider>
+          <SpeedInsights />
+          <Analytics />
+        </div>
+      </body>
     </html>
   );
 }
