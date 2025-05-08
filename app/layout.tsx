@@ -3,7 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, Viewport } from 'next';
 import { Baloo_2, Signika } from 'next/font/google';
-// import { Footer } from '@/components/footer';
+import { Footer } from '@/components/footer';
 // import { Navbar } from '@/components/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 
@@ -130,7 +130,7 @@ export default function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {/* <Navbar /> */}
             <main className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">{children}</main>
-            {/* <Footer /> */}
+            <Footer />
           </ThemeProvider>
           <SpeedInsights />
           <Analytics />
