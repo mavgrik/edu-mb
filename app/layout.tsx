@@ -4,7 +4,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, Viewport } from 'next';
 import { Baloo_2, Signika } from 'next/font/google';
 import { Footer } from '@/components/footer';
-// import { Navbar } from '@/components/navbar';
+import { Navbar } from '@/components/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 
 // Metadata configuration for the application
@@ -128,7 +128,7 @@ export default function RootLayout({
       <body className={`${baloo.variable} ${signika.variable}`}>
         <div className="bg-background">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            {/* <Navbar /> */}
+            <Navbar />
             <main className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">{children}</main>
             <Footer />
           </ThemeProvider>

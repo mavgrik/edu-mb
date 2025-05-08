@@ -12,23 +12,23 @@ export function Footer() {
       <Separator className="mt-6" />
       <div className="bg-extra px-4 pb-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">
         <div className="flex flex-col items-center justify-between space-y-4 pt-4 md:flex-row md:space-y-0">
-          <div className="flex flex-wrap items-center justify-center text-muted-foreground">
-            <Link href="/" className="px-4 text-sm hover:text-primary md:pl-0 lg:pr-6">
+          <div className="text-muted-foreground flex flex-wrap items-center justify-center">
+            <Link href="/" className="hover:text-primary px-4 text-sm md:pl-0 lg:pr-6">
               Home
             </Link>
-            <Link href="/societa" className="px-4 text-sm hover:text-primary lg:px-6">
+            <Link href="/societa" className="hover:text-primary px-4 text-sm lg:px-6">
               Chi siamo
             </Link>
-            <Link href="/arco" className="px-4 text-sm hover:text-primary lg:px-6">
+            <Link href="/arco" className="hover:text-primary px-4 text-sm lg:px-6">
               Il tiro con l&apos;arco
             </Link>
-            <Link href="/societa/team" className="px-4 text-sm hover:text-primary lg:px-6">
+            <Link href="/societa/team" className="hover:text-primary px-4 text-sm lg:px-6">
               Il team
             </Link>
-            <Link href="/corsi" className="px-4 text-sm hover:text-primary lg:px-6">
+            <Link href="/corsi" className="hover:text-primary px-4 text-sm lg:px-6">
               I corsi
             </Link>
-            <Link href="/arco/faq" className="px-4 text-sm hover:text-primary lg:px-6">
+            <Link href="/arco/faq" className="hover:text-primary px-4 text-sm lg:px-6">
               FAQ
             </Link>
           </div>
@@ -68,11 +68,11 @@ export function Footer() {
           </div>
         </div>
         <div className="flex flex-col items-center justify-between space-y-4 pt-2 md:flex-row md:space-y-0">
-          <div className="text-center text-muted-foreground md:text-left">
+          <div className="text-muted-foreground text-center md:text-left">
             <p className="text-xs">
               ©{new Date().getFullYear()} mavgrik. Tutti i diritti riservati.
               <br className="md:hidden" />
-              <Link href="/policies" className="text-xs hover:text-primary md:ml-4">
+              <Link href="/policies" className="hover:text-primary text-xs md:ml-4">
                 Politica sulla Privacy
               </Link>
             </p>
