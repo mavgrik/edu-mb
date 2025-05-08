@@ -6,8 +6,6 @@ const config = {
   plugins: {
     // Include Tailwind CSS for utility-first CSS framework
     '@tailwindcss/postcss': {},
-    // Include Autoprefixer to add vendor prefixes to CSS rules
-    autoprefixer: {},
   },
 };
 

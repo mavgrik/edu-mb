@@ -69,7 +69,7 @@ export const metadata: Metadata = {
 const baloo = Baloo_2({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-baloo',
+  variable: '--baloo',
   weight: '400',
   style: 'normal',
 });
@@ -77,7 +77,7 @@ const baloo = Baloo_2({
 const signika = Signika({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-signika',
+  variable: '--signika',
   weight: '600',
   style: 'normal',
 });
