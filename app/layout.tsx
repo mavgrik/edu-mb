@@ -126,7 +126,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${baloo.variable} ${signika.variable}`}>
-        <div className="bg-background">
+        <div className="bg-background flex min-h-screen flex-col">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Navbar />
             <main className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">{children}</main>

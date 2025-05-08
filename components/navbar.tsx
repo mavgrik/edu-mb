@@ -4,7 +4,8 @@ import { Root as Hidden } from '@radix-ui/react-visually-hidden';
 import { Menu } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ComponentPropsWithoutRef, ElementRef, forwardRef, useState } from 'react';
+import { useTheme } from 'next-themes';
+import { ComponentPropsWithoutRef, ComponentRef, forwardRef, useEffect, useState } from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import {
@@ -19,7 +20,8 @@ import {
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
-import Scaligeri from '@/public/icons/icon.svg';
+import Logo_dark from '@/public/logo_dark.svg';
+import Logo_light from '@/public/logo_light.svg';
 
 const navItems: { title: string; href: string; children?: { title: string; href: string; description: string }[] }[] = [
   {
@@ -74,7 +76,7 @@ const navItems: { title: string; href: string; children?: { title: string; href:
   },
 ];
 
-const ListItem = forwardRef<ElementRef<'a'>, ComponentPropsWithoutRef<'a'>>(
+const ListItem = forwardRef<ComponentRef<'a'>, ComponentPropsWithoutRef<'a'>>(
   ({ className, title, children, ...props }, ref) => {
     return (
       <li>
@@ -98,13 +100,21 @@ const ListItem = forwardRef<ElementRef<'a'>, ComponentPropsWithoutRef<'a'>>(
 ListItem.displayName = 'ListItem';
 
 export function Navbar() {
+  const { theme, resolvedTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const currentTheme = mounted ? (theme === 'system' ? resolvedTheme : theme) : 'light';
 
   return (
     <header>
       <div className="bg-extra sticky flex items-center justify-between px-4 py-2 sm:px-6 md:px-8 lg:px-12 xl:px-24">
         <Link href="/" passHref className="flex items-center justify-center space-x-2">
-          <Image src={Scaligeri} alt="A.S.D. Compagnia Arcieri Scaligeri Logo" width={50} height={50} priority />
+          <Image src={currentTheme === 'dark' ? Logo_dark : Logo_light} alt="MB Logo" width={50} height={50} priority />
           <p className="font-title pr-6 text-xl leading-8 font-bold">
             <span className="font-title xs:inline hidden text-xl leading-8 font-bold">A.S.D. </span>
             <span className="font-title 2xs:inline hidden text-xl leading-8 font-bold">
@@ -121,11 +131,9 @@ export function Navbar() {
                   {item.children ? (
                     <NavigationMenuTrigger className="mr-2">{item.title}</NavigationMenuTrigger>
                   ) : (
-                    <Link href={item.href} passHref legacyBehavior>
-                      <NavigationMenuLink className={`${navigationMenuTriggerStyle()} mr-2`}>
-                        {item.title}
-                      </NavigationMenuLink>
-                    </Link>
+                    <NavigationMenuLink href={item.href} className={`${navigationMenuTriggerStyle()} mr-2`}>
+                      {item.title}
+                    </NavigationMenuLink>
                   )}
                   {item.children && (
                     <NavigationMenuContent>
@@ -142,9 +150,6 @@ export function Navbar() {
               ))}
             </NavigationMenuList>
           </NavigationMenu>
-          <Button variant="outline" className="ml-1" onClick={() => (window.location.href = '/app')}>
-            Accedi
-          </Button>
         </div>
         <div className="lg:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -189,9 +194,6 @@ export function Navbar() {
                     </AccordionItem>
                   ))}
                 </Accordion>
-                <Button variant="outline" className="mt-4 w-full" onClick={() => (window.location.href = '/app')}>
-                  Accedi
-                </Button>
               </nav>
             </SheetContent>
           </Sheet>
