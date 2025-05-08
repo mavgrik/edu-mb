@@ -8,7 +8,9 @@
     "shadcn",
     "mb",
     "matteohv",
-    "nodenext"
+    "nodenext",
+    "embla",
+    "autoplay"
   ],
   "cSpell.ignorePaths": [
     "pnpm-lock.yaml",
