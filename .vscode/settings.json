@@ -10,7 +10,9 @@
     "matteohv",
     "nodenext",
     "embla",
-    "autoplay"
+    "autoplay",
+    "timelapse",
+    "Benini"
   ],
   "cSpell.ignorePaths": [
     "pnpm-lock.yaml",

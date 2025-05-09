@@ -89,8 +89,8 @@ export const viewport: Viewport = {
   height: 'device-height', // Set the viewport height to the device height
 };
 
-const LIGHT_THEME_COLOR = '#ffffff';
-const DARK_THEME_COLOR = '#0a0a0a';
+const LIGHT_THEME_COLOR = '#d9d9d9';
+const DARK_THEME_COLOR = '#18181b';
 const THEME_COLOR_SCRIPT = `\
 (function() {
   var html = document.documentElement;

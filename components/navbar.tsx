@@ -23,56 +23,48 @@ import { cn } from '@/lib/utils';
 import Logo_dark from '@/public/logo_dark.svg';
 import Logo_light from '@/public/logo_light.svg';
 
+//TODO: Titolo responsive
+
 const navItems: { title: string; href: string; children?: { title: string; href: string; description: string }[] }[] = [
   {
-    title: 'Chi siamo',
-    href: '/societa',
+    title: 'Home',
+    href: '/',
+  },
+  {
+    title: 'Analisi dei dati',
+    href: '/analisi',
+  },
+  {
+    title: 'Mappe',
+    href: '',
     children: [
       {
-        title: 'La nostra storia',
-        href: '/societa/storia',
-        description: 'Scopri la storia della nostra società',
+        title: 'Mappa interattiva',
+        href: '/mappe/interattiva',
+        description: 'Visualizza la mappa interattiva sulla siccità in Pianura Padana',
       },
       {
-        title: 'Il nostro team',
-        href: '/societa/team',
-        description: 'Conosci i nostri istruttori ed il consiglio societario',
-      },
-      {
-        title: 'Cosa facciamo e dove siamo',
-        href: '/societa/attivita',
-        description: 'Scopri le attività e come raggiungerci',
-      },
-      {
-        title: 'Contattaci',
-        href: '/societa/contatti',
-        description: 'Scrivici per qualsiasi informazione',
+        title: 'Time-lapse',
+        href: '/mappe/timelapse',
+        description: 'Visualizza il time-lapse sulla siccità in Pianura Padana',
       },
     ],
   },
   {
-    title: "Il tiro con l'arco",
-    href: '/arco',
+    title: 'Risorse e contatti',
+    href: '',
     children: [
       {
-        title: 'Lo sport',
-        href: '/arco/sport',
-        description: 'Scopri le discipline e le competizioni',
+        title: 'Risorse',
+        href: '/risorse',
+        description: 'Link utili e risorse per approfondire il tema della siccità',
       },
       {
-        title: 'A Verona',
-        href: '/arco/verona',
-        description: "Scopri la storia dell'arco a Verona",
+        title: 'Contatti',
+        href: '/contatti',
+        description: 'Contattaci per maggiori informazioni o richieste',
       },
     ],
-  },
-  {
-    title: 'I nostri corsi',
-    href: '/corsi',
-  },
-  {
-    title: 'News',
-    href: '/news',
   },
 ];
 
@@ -112,16 +104,10 @@ export function Navbar() {
 
   return (
     <header>
-      <div className="bg-extra sticky flex items-center justify-between px-4 py-2 sm:px-6 md:px-8 lg:px-12 xl:px-24">
+      <div className="bg-card sticky flex items-center justify-between px-4 py-2 sm:px-6 md:px-8 lg:px-12 xl:px-24">
         <Link href="/" passHref className="flex items-center justify-center space-x-2">
           <Image src={currentTheme === 'dark' ? Logo_dark : Logo_light} alt="MB Logo" width={50} height={50} priority />
-          <p className="font-title pr-6 text-xl leading-8 font-bold">
-            <span className="font-title xs:inline hidden text-xl leading-8 font-bold">A.S.D. </span>
-            <span className="font-title 2xs:inline hidden text-xl leading-8 font-bold">
-              Compagnia <br className="xl:hidden" />
-            </span>
-            Arcieri Scaligeri
-          </p>
+          <p className="font-title pr-6 pl-2 text-xl leading-8 font-bold">La siccità in Pianura Padana</p>
         </Link>
         <div className="hidden items-center justify-center lg:flex">
           <NavigationMenu>
@@ -163,7 +149,7 @@ export function Navbar() {
                 <SheetTitle>Menu</SheetTitle>
               </Hidden>
               <nav className="flex flex-col space-y-4">
-                <Accordion type="single" collapsible className="w-full">
+                <Accordion type="single" collapsible className="w-full px-4">
                   {navItems.map((item, index) => (
                     <AccordionItem value={`item-${index}`} key={item.title}>
                       {item.children ? (
@@ -199,7 +185,7 @@ export function Navbar() {
           </Sheet>
         </div>
       </div>
-      <Separator className="mb-4" />
+      <Separator className="bg-muted-foreground mb-4" />
     </header>
   );
 }

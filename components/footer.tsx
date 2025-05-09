@@ -6,11 +6,13 @@ import Link from 'next/link';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Separator } from '@/components/ui/separator';
 
+//TODO: Change links / Items
+
 export function Footer() {
   return (
     <footer className="mt-auto">
-      <Separator className="mt-6" />
-      <div className="bg-extra px-4 pb-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">
+      <Separator className="bg-muted-foreground mt-6" />
+      <div className="bg-card px-4 pb-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">
         <div className="flex flex-col items-center justify-between space-y-4 pt-4 md:flex-row md:space-y-0">
           <div className="text-muted-foreground flex flex-wrap items-center justify-center">
             <Link href="/" className="hover:text-primary px-4 text-sm md:pl-0 lg:pr-6">
@@ -70,7 +72,7 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between space-y-4 pt-2 md:flex-row md:space-y-0">
           <div className="text-muted-foreground text-center md:text-left">
             <p className="text-xs">
-              ©{new Date().getFullYear()} mavgrik. Tutti i diritti riservati.
+              ©{new Date().getFullYear()} Marco Bassi e Matteo Benini. Tutti i diritti riservati.
               <br className="md:hidden" />
               <Link href="/policies" className="hover:text-primary text-xs md:ml-4">
                 Politica sulla Privacy
