@@ -1,13 +1,13 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Separator } from '@/components/ui/separator';
-import { useEffect, useState } from 'react';
-import { useTheme } from 'next-themes';
 import Logo_dark from '@/public/logo_dark.svg';
 import Logo_light from '@/public/logo_light.svg';
-import Image from 'next/image';
 
 export function Footer() {
   const { theme, resolvedTheme } = useTheme();
@@ -23,10 +23,17 @@ export function Footer() {
     <footer className="mt-auto">
       <Separator className="bg-muted-foreground mt-6" />
       <div className="bg-card px-4 pb-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">
-        <div className="flex flex-col items-center justify-between space-y-4 pt-4 ftl:flex-row ftl:space-y-0">
+        <div className="ftl:flex-row ftl:space-y-0 flex flex-col items-center justify-between space-y-4 pt-4">
           <div className="text-muted-foreground flex flex-wrap items-center justify-center">
-            <Image className="ftl:inline hidden" src={currentTheme === 'dark' ? Logo_dark : Logo_light} alt="MB Logo" width={32} height={32} priority />
-            <Link href="/" className="hover:text-primary px-4 text-sm md:pl-0 lg:pr-6 ftl:ml-6">
+            <Image
+              className="ftl:inline hidden"
+              src={currentTheme === 'dark' ? Logo_dark : Logo_light}
+              alt="MB Logo"
+              width={32}
+              height={32}
+              priority
+            />
+            <Link href="/" className="hover:text-primary ftl:ml-6 px-4 text-sm md:pl-0 lg:pr-6">
               Home
             </Link>
             <Link href="/analisi" className="hover:text-primary px-4 text-sm lg:px-6">
