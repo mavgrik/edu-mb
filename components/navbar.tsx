@@ -107,7 +107,7 @@ export function Navbar() {
       <div className="bg-card sticky flex items-center justify-between px-4 py-2 sm:px-6 md:px-8 lg:px-12 xl:px-24">
         <Link href="/" passHref className="flex items-center justify-center space-x-2">
           <Image src={currentTheme === 'dark' ? Logo_dark : Logo_light} alt="MB Logo" width={50} height={50} priority />
-          <p className="font-title pr-6 pl-2 text-xl leading-8 font-bold">La siccità in Pianura Padana</p>
+          <p className="font-title pr-6 pl-4 text-xl leading-8 font-bold">La siccità in Pianura Padana</p>
         </Link>
         <div className="hidden items-center justify-center lg:flex">
           <NavigationMenu>

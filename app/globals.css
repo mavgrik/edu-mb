@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -49,10 +49,7 @@
   --text-xl: 1.75rem;
   --font-title: var(--baloo);
   --font-body: var(--signika);
-  --breakpoint-2xs: 360px;
-  --breakpoint-xs: 380px;
-  --breakpoint-3xl: 2080px;
-  --breakpoint-4xl: 2360px;
+  --breakpoint-ftl: 885px;
 }
 
 :root {
@@ -127,14 +124,26 @@
 @layer base {
   /* Apply background and text color to the body */
   body {
-    @apply bg-card text-foreground scroll-smooth border-border flex min-h-screen flex-col;
+    @apply bg-card text-foreground border-border flex min-h-screen flex-col scroll-smooth;
   }
   /* Apply text to title elements */
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold text-xl antialiased font-title;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-title text-xl font-semibold antialiased;
   }
   /* Apply text to all text elements */
-  p, a, span, label, input, textarea, select, button {
-    @apply font-normal text-mm antialiased font-body;
+  p,
+  a,
+  span,
+  label,
+  input,
+  textarea,
+  select,
+  button {
+    @apply text-mm font-body font-normal antialiased;
   }
 }
