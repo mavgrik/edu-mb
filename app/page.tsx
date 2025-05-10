@@ -33,7 +33,7 @@ export default function Home() {
         <div className="flex justify-end">
           <Button variant="link" className="border-input bg-background rounded-lg border">
             <Link href="/arco/sport" className="text-sm">
-              Continua a leggere... Assorate
+              Continua a leggere...
             </Link>
           </Button>
         </div>
