@@ -4,6 +4,10 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Button } from '@/components/ui/button';
 import Hero from '@/public/images/Hero.jpeg';
 
+//TODO: Aggiungere link verso le altre pagine delle mappe
+//TODO: Aggiungere immagini dentro al 2/3
+//FIXME:  Sistemare padding/spacing tra due 1/3 2/3
+
 export default function Home() {
   return (
     <div className="space-y-4">
@@ -39,7 +43,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="ftl:flex-col-reverse flex w-full flex-col gap-6 space-x-4">
+      <div className="ftl:flex-row-reverse flex w-full flex-col-reverse gap-6 space-x-4">
         <div className="bg-muted ftl:w-1/3 ftl:p-8 w-full rounded-lg p-6">
           <h2 className="mb-4 text-xl font-semibold">One Third</h2>
           <p>
@@ -49,7 +53,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="bg-muted ftl:p-8 w-full rounded-lg p-6 md:w-2/3">
+        <div className="bg-muted ftl:p-8 ftl:w-2/3 w-full rounded-lg p-6">
           <h2 className="mb-4 text-xl font-semibold">Two Thirds</h2>
           <p>This div takes up 2/3 of the screen width on desktop and tablet, but full width on mobile.</p>
           <p className="mt-4">
@@ -70,7 +74,7 @@ export default function Home() {
         </div>
 
         {/* Second div - 2/3 width on desktop, full width on mobile */}
-        <div className="bg-muted ftl:p-8 w-full rounded-lg p-6 md:w-2/3">
+        <div className="bg-muted ftl:p-8 ftl:w-2/3 w-full rounded-lg p-6">
           <h2 className="mb-4 text-xl font-semibold">Two Thirds</h2>
           <p>This div takes up 2/3 of the screen width on desktop and tablet, but full width on mobile.</p>
           <p className="mt-4">
