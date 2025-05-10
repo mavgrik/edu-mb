@@ -5,6 +5,7 @@ import type { Metadata, Viewport } from 'next';
 import { Baloo_2, Signika } from 'next/font/google';
 import { Footer } from '@/components/footer';
 import { Navbar } from '@/components/navbar';
+import { SplashScreenProvider } from '@/components/splash-screen-provider';
 import { ThemeProvider } from '@/components/theme-provider';
 
 // Metadata configuration for the application
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   ],
   authors: [
     { name: 'mavgrik', url: 'https://tree.mavgrik.net' },
-    { name: 'matteohv', url: 'mailto://matteo.benini.scuola@gmail.com' },
+    { name: 'matteohv', url: 'mailto:matteo.benini.scuola@gmail.com' },
   ], // Author information
   formatDetection: {
     email: false, // Disable email detection
@@ -126,15 +127,17 @@ export default function RootLayout({
         />
       </head>
       <body className={`${baloo.variable} ${signika.variable}`}>
-        <div className="bg-background flex min-h-screen flex-col">
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Navbar />
-            <main className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">{children}</main>
-            <Footer />
-          </ThemeProvider>
-          <SpeedInsights />
-          <Analytics />
-        </div>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <SplashScreenProvider>
+            <div className="bg-background flex min-h-screen flex-col">
+              <Navbar />
+              <main className="mb-4 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">{children}</main>
+              <Footer />
+            </div>
+          </SplashScreenProvider>
+        </ThemeProvider>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

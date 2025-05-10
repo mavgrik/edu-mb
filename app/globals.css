@@ -49,7 +49,9 @@
   --text-xl: 1.75rem;
   --font-title: var(--baloo);
   --font-body: var(--signika);
+  --breakpoint-xs: 500px;
   --breakpoint-ftl: 885px;
+  --breakpoint-nvl: 1070px;
 }
 
 :root {

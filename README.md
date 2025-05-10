@@ -1,5 +1,18 @@
-//TODO: Add a description of the project
-//TODO: Add project developers
+# La siccità in Pianura Padana
+
+## Description
+This website is a research project aimed at analyzing data related to drought in the Po Valley.  
+Specifically, the project uses data provided by the Sentinel-2 and Sentinel-1 satellites to study the progression of drought in the Po Valley during the summer period.
+
+### Developers
+
+#### mavgrik
+- **Email**: [dev@mavgrik.net](mailto:dev@mavgrik.net)  
+- **GitHub**: [mavgrik](https://github.com/mavgrik/)
+
+#### matteohv
+- **Email**: [matteo.benini.scuola@gmail.com](mailto:matteo.benini.scuola@gmail.com)  
+- **GitHub**: [matteohv](https://github.com/matteohv/)
 
 ## License
 
