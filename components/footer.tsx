@@ -18,56 +18,23 @@ export function Footer() {
             <Link href="/" className="hover:text-primary px-4 text-sm md:pl-0 lg:pr-6">
               Home
             </Link>
-            <Link href="/societa" className="hover:text-primary px-4 text-sm lg:px-6">
-              Chi siamo
+            <Link href="/analisi" className="hover:text-primary px-4 text-sm lg:px-6">
+              Analisi dei dati 
             </Link>
-            <Link href="/arco" className="hover:text-primary px-4 text-sm lg:px-6">
-              Il tiro con l&apos;arco
+            <Link href="/mappe/interrattiva" className="hover:text-primary px-4 text-sm lg:px-6">
+              Mappa interattiva
             </Link>
-            <Link href="/societa/team" className="hover:text-primary px-4 text-sm lg:px-6">
-              Il team
+            <Link href="/mappe/interrattiva" className="hover:text-primary px-4 text-sm lg:px-6">
+              Time-lapse
             </Link>
-            <Link href="/corsi" className="hover:text-primary px-4 text-sm lg:px-6">
-              I corsi
+            <Link href="/contatti" className="hover:text-primary px-4 text-sm lg:px-6">
+              Contatti
             </Link>
-            <Link href="/arco/faq" className="hover:text-primary px-4 text-sm lg:px-6">
-              FAQ
-            </Link>
-          </div>
-          <div className="flex items-center space-x-4">
-            <Link
-              href="https://www.instagram.com/arcieriscaligeri/"
-              target="_blank"
-              className="text-foreground hover:text-primary"
-            >
-              <SiInstagram className="h-5 w-5" />
-              <span className="sr-only">Instagram</span>
-            </Link>
-            <Link
-              href="https://www.facebook.com/arcieriscaligeri/"
-              target="_blank"
-              className="text-foreground hover:text-primary"
-            >
-              <SiFacebook className="h-5 w-5" />
-              <span className="sr-only">Facebook</span>
-            </Link>
-            <Link
-              href="https://wa.me/message/KNADFQI65ROBI1"
-              target="_blank"
-              className="text-foreground hover:text-primary"
-            >
-              <SiWhatsapp className="h-5 w-5" />
-              <span className="sr-only">WhatsApp</span>
-            </Link>
-            <Link href="tel:+393792004174" className="text-foreground hover:text-primary">
-              <Phone className="h-5 w-5" />
-              <span className="sr-only">Telefono</span>
-            </Link>
-            <Link href="mailto:arcieriscaligeri@gmail.com" className="text-foreground hover:text-primary">
-              <Mail className="h-5 w-5" />
-              <span className="sr-only">Email</span>
+            <Link href="/risorse" className="hover:text-primary px-4 text-sm lg:px-6">
+              Risorse
             </Link>
           </div>
+          
         </div>
         <div className="flex flex-col items-center justify-between space-y-4 pt-2 md:flex-row md:space-y-0">
           <div className="text-muted-foreground text-center md:text-left">
