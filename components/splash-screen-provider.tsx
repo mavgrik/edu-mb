@@ -24,7 +24,6 @@ export function SplashScreenProvider({ children }: { children: React.ReactNode }
   const [showSplash, setShowSplash] = useState(false);
   const [splashComplete, setSplashComplete] = useState(false);
   const [hasSeenSplashScreen, setHasSeenSplashScreen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
   // Function to reset the splash screen
@@ -51,17 +50,12 @@ export function SplashScreenProvider({ children }: { children: React.ReactNode }
       setSplashComplete(true);
       setHasSeenSplashScreen(true);
     }
-
-    setMounted(true);
   }, []);
 
   // This effect runs when the pathname changes (page navigation)
   useEffect(() => {
     // The splash screen state is maintained during navigation
   }, [pathname]);
-
-  // If not mounted yet, render nothing to prevent flash of content
-  if (!mounted) return null;
 
   return (
     <SplashScreenContext.Provider
@@ -77,7 +71,6 @@ export function SplashScreenProvider({ children }: { children: React.ReactNode }
       {/* Show splash screen only when needed */}
       {showSplash && (
         <SplashScreen
-          minimumLoadTimeMs={2500}
           onComplete={() => {
             setShowSplash(false);
             setSplashComplete(true);

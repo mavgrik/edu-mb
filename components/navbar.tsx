@@ -5,7 +5,7 @@ import { Menu } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
-import { ComponentPropsWithoutRef, ComponentRef, forwardRef, useEffect, useState } from 'react';
+import { ComponentPropsWithoutRef, ComponentRef, forwardRef, useState } from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import {
@@ -22,7 +22,8 @@ import { cn } from '@/lib/utils';
 import Logo_dark from '@/public/logo_dark.svg';
 import Logo_light from '@/public/logo_light.svg';
 
-//TODO: caricamento logo
+//FIXME: Complete reload when changing page
+//FIXME: Not closing the menu when clicking on a link (on mobile)
 
 const navItems: { title: string; href: string; children?: { title: string; href: string; description: string }[] }[] = [
   {
@@ -93,16 +94,11 @@ ListItem.displayName = 'ListItem';
 export function Navbar() {
   const { theme, resolvedTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const currentTheme = mounted ? (theme === 'system' ? resolvedTheme : theme) : 'light';
+  const currentTheme = theme === 'system' ? resolvedTheme : theme;
 
   return (
-    <header className="bg-card border-muted-foreground sticky mb-4 flex items-center justify-between rounded-b-4xl border-b px-4 py-2 sm:px-6 md:px-8 lg:px-12 xl:px-24">
+    <header className="bg-card border-muted-foreground sticky z-10 mb-4 flex items-center justify-between rounded-b-4xl border-b px-4 py-2 sm:px-6 md:px-8 lg:px-12 xl:px-24">
       <Link href="/" passHref className="flex items-center justify-center space-x-2">
         <Image src={currentTheme === 'dark' ? Logo_dark : Logo_light} alt="MB Logo" width={50} height={50} priority />
         <p className="font-title px-4 text-xl leading-8 font-bold">

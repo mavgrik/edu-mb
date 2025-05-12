@@ -4,6 +4,8 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+import Logo_dark from '@/public/logo_dark.svg';
+import Logo_light from '@/public/logo_light.svg';
 
 interface SplashScreenProps {
   minimumLoadTimeMs?: number;
@@ -13,7 +15,7 @@ interface SplashScreenProps {
 }
 
 export default function SplashScreen({
-  minimumLoadTimeMs = 2000,
+  minimumLoadTimeMs = 2500,
   finishDelay = 300,
   onComplete,
   logoSize = 120,
@@ -89,11 +91,11 @@ export default function SplashScreen({
 
 function LogoAnimation({ size = 120 }: { size?: number }) {
   const { theme, resolvedTheme } = useTheme();
+
   const currentTheme = theme === 'system' ? resolvedTheme : theme;
-  const isDarkTheme = currentTheme === 'dark';
 
   // Use the appropriate logo based on the theme
-  const logoSrc = isDarkTheme ? '/logo_dark.svg' : '/logo_light.svg';
+  const logoSrc = currentTheme === 'dark' ? Logo_dark : Logo_light;
 
   return (
     <div className="relative" style={{ width: size, height: size }}>

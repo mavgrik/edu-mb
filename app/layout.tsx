@@ -90,26 +90,6 @@ export const viewport: Viewport = {
   height: 'device-height', // Set the viewport height to the device height
 };
 
-const LIGHT_THEME_COLOR = '#d9d9d9';
-const DARK_THEME_COLOR = '#18181b';
-const THEME_COLOR_SCRIPT = `\
-(function() {
-  var html = document.documentElement;
-  var meta = document.querySelector('meta[name="theme-color"]');
-  if (!meta) {
-    meta = document.createElement('meta');
-    meta.setAttribute('name', 'theme-color');
-    document.head.appendChild(meta);
-  }
-  function updateThemeColor() {
-    var isDark = html.classList.contains('dark');
-    meta.setAttribute('content', isDark ? '${DARK_THEME_COLOR}' : '${LIGHT_THEME_COLOR}');
-  }
-  var observer = new MutationObserver(updateThemeColor);
-  observer.observe(html, { attributes: true, attributeFilter: ['class'] });
-  updateThemeColor();
-})();`;
-
 // Root layout component
 export default function RootLayout({
   children,
@@ -118,20 +98,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it" suppressHydrationWarning>
-      <head>
-        <script
-          //skipcq: JS-0440
-          dangerouslySetInnerHTML={{
-            __html: THEME_COLOR_SCRIPT,
-          }}
-        />
-      </head>
       <body className={`${baloo.variable} ${signika.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SplashScreenProvider>
             <div className="bg-background flex min-h-screen flex-col">
               <Navbar />
-              <main className="mb-4 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">{children}</main>
+              <main className="z-0 mb-4 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">{children}</main>
               <Footer />
             </div>
           </SplashScreenProvider>
