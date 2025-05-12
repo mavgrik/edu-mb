@@ -23,14 +23,14 @@ export default function Home() {
             portata minimi storici, in particolare durante l’estate 2022 e nuovamente nel 2023. Le cause principali sono
             da ricercarsi in precipitazioni scarse, inverni con accumuli nevosi ridotti e temperature superiori alla
             media, che hanno accelerato i processi di evaporazione. L’impatto della siccità si è riflesso gravemente
-            sull’agricoltura, sull’approvvigionamento idrico, sulla produzione di energia idroelettrica e sugli
-            ecosistemi fluviali. La situazione del Po è diventata emblematica delle vulnerabilità idriche italiane ed
-            europee in un contesto di cambiamento climatico. I dati satellitari del programma Copernicus, in particolare
-            quelli provenienti dai satelliti Sentinel-2, hanno documentato in dettaglio il progressivo prosciugamento
-            del fiume, la riduzione della vegetazione e l’inaridimento dei suoli agricoli circostanti. Attraverso queste
-            immagini è possibile osservare l’evoluzione della siccità in modo oggettivo e aggiornato. Monitorare
-            fenomeni come quello del Po non è solo utile dal punto di vista scientifico, ma anche essenziale per
-            sensibilizzare l’opinione pubblica e supportare strategie di adattamento e gestione sostenibile della
+            sull&apos;agricoltura, sull&apos;approvvigionamento idrico, sulla produzione di energia idroelettrica e
+            sugli ecosistemi fluviali. La situazione del Po è diventata emblematica delle vulnerabilità idriche italiane
+            ed europee in un contesto di cambiamento climatico. I dati satellitari del programma Copernicus, in
+            particolare quelli provenienti dai satelliti Sentinel-2, hanno documentato in dettaglio il progressivo
+            prosciugamento del fiume, la riduzione della vegetazione e l’inaridimento dei suoli agricoli circostanti.
+            Attraverso queste immagini è possibile osservare l’evoluzione della siccità in modo oggettivo e aggiornato.
+            Monitorare fenomeni come quello del Po non è solo utile dal punto di vista scientifico, ma anche essenziale
+            per sensibilizzare l’opinione pubblica e supportare strategie di adattamento e gestione sostenibile della
             risorsa idrica.
           </p>
         </div>
@@ -43,9 +43,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="ftl:flex-row-reverse flex w-full flex-col-reverse gap-6 space-x-4">
-        <div className="bg-muted ftl:w-1/3 ftl:p-8 w-full rounded-lg p-6">
-          <h2 className="mb-4 text-xl font-semibold">One Third</h2>
+      <div className="ftl:flex-row-reverse ftl:space-x-6 ftl:space-x-reverse ftl:space-y-0 flex w-full flex-col-reverse items-stretch space-y-reverse">
+        <div className="bg-muted ftl:w-1/3 flex w-full flex-col space-y-6 rounded-lg p-6">
+          <h2 className="mb-4">DESCR</h2>
           <p>
             This div takes up 1/3 of the screen width on desktop and tablet, but full width on mobile.his div takes up
             1/3 of the screen width on desktop and tablet, but full width on mobile.his div takes up 1/3 of the screen
@@ -53,19 +53,18 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="bg-muted ftl:p-8 ftl:w-2/3 w-full rounded-lg p-6">
-          <h2 className="mb-4 text-xl font-semibold">Two Thirds</h2>
-          <p>This div takes up 2/3 of the screen width on desktop and tablet, but full width on mobile.</p>
-          <p className="mt-4">
-            The layout automatically stacks vertically on smaller screens for better mobile experience.
+        <div className="bg-muted ftl:w-2/3 flex w-full flex-col space-y-6 rounded-lg p-6">
+          <h2 className="mb-4">IMG</h2>
+          <p>
+            This div takes up 2/3 of the screen width on desktop and tablet, but full width on mobile. The layout
+            automatically stacks vertically on smaller screens for better mobile experience.
           </p>
         </div>
       </div>
 
-      <div className="ftl:flex-row flex w-full flex-col-reverse gap-6 space-x-4">
-        {/* First div - 1/3 width on desktop, full width on mobile */}
+      <div className="ftl:flex-row ftl:space-x-6 flex w-full flex-col-reverse space-y-6 space-y-reverse">
         <div className="bg-muted ftl:w-1/3 ftl:p-8 w-full rounded-lg p-6">
-          <h2 className="mb-4 text-xl font-semibold">One Third</h2>
+          <h2 className="mb-4">DESCR</h2>
           <p>
             This div takes up 1/3 of the screen width on desktop and tablet, but full width on mobile.his div takes up
             1/3 of the screen width on desktop and tablet, but full width on mobile.his div takes up 1/3 of the screen
@@ -73,12 +72,11 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Second div - 2/3 width on desktop, full width on mobile */}
-        <div className="bg-muted ftl:p-8 ftl:w-2/3 w-full rounded-lg p-6">
-          <h2 className="mb-4 text-xl font-semibold">Two Thirds</h2>
-          <p>This div takes up 2/3 of the screen width on desktop and tablet, but full width on mobile.</p>
-          <p className="mt-4">
-            The layout automatically stacks vertically on smaller screens for better mobile experience.
+        <div className="bg-muted ftl:w-2/3 w-full rounded-lg p-6">
+          <h2 className="mb-4">IMG</h2>
+          <p>
+            This div takes up 2/3 of the screen width on desktop and tablet, but full width on mobile. The layout
+            automatically stacks vertically on smaller screens for better mobile experience.
           </p>
         </div>
       </div>

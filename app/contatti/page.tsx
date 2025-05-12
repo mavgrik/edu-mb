@@ -2,90 +2,82 @@ import { SiGithub } from '@icons-pack/react-simple-icons';
 import { Mail } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-
-//TODO: Complete the page
+import Bonobo1 from '@/public/images/bonobo_1.jpeg';
+import Bonobo2 from '@/public/images/bonobo_2.jpeg';
 
 export default function ContactsPage() {
   const developers = [
     {
       name: 'Matteo Benini',
-      role: 'Lead Frontend Developer',
+      role: 'Frontend Developer',
       description:
-        'Specializes in creating responsive, accessible user interfaces with React and Next.js. Responsible for implementing design systems and ensuring consistent user experiences across platforms.',
+        "Specializzato nella creazione di interfacce utente reattive e accessibili. Responsabile dell'implementazione di sistemi di design e della garanzia di esperienze utente coerenti su tutte le piattaforme.",
       email: 'matteo.benini.scuola@gmail.com',
       github: 'https://github.com/matteohv',
       focus: 'Frontend',
-      image: '/placeholder.svg',
+      image: Bonobo1,
     },
     {
       name: 'Marco Bassi',
-      role: 'Senior Backend Engineer',
+      role: 'Backend Engineer',
       description:
-        'Expert in building scalable API architectures and database systems. Leads the development of microservices and ensures optimal performance and security across all backend systems.',
+        "Specializzato nella gestione di pipeline CI/CD e nell'ottimizzazione delle performance backend. Responsabile dell'integrazione di API e dell'implementazione di soluzioni tecnologiche scalabili avanzate.",
       email: 'dev@mavgrik.net',
       github: 'https://github.com/mavgrik',
       focus: 'Backend',
-      image: '/placeholder.svg',
+      image: Bonobo2,
     },
   ];
 
   return (
-    <main className="container mx-auto px-4 py-12 md:px-6">
-      <div className="space-y-6">
-        <div className="space-y-2 text-center">
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Our Team</h1>
-          <p className="text-muted-foreground mx-auto max-w-[700px]">
-            Meet the talented developers behind our technology solutions
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 gap-6 pt-8 md:grid-cols-2">
-          {developers.map((developer) => (
-            <Card key={developer.name} className="overflow-hidden transition-all duration-200 hover:shadow-lg">
-              <div className="relative aspect-square overflow-hidden">
+    <div className="flex flex-col items-center justify-start space-y-6">
+      <h1 className="text-4xl">Il Team</h1>
+      <div className="flex w-full flex-col items-stretch justify-between space-y-6 md:flex-row md:space-y-0 md:space-x-16 lg:space-x-32">
+        {developers.map((developer) => (
+          <div
+            key={developer.name}
+            className="bg-muted flex flex-col items-center justify-between space-y-2 rounded-lg border p-6"
+          >
+            <div className="flex w-full max-w-full items-center justify-center sm:max-w-3/4 md:max-w-full lg:max-w-5/6">
+              <AspectRatio ratio={1 / 1} className="overflow-hidden rounded-lg border">
                 <Image
                   src={developer.image}
                   alt={developer.name}
-                  fill
-                  className="object-cover transition-transform duration-300 hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-300 hover:scale-110"
+                  priority
                 />
+              </AspectRatio>
+            </div>
+            <div className="mt-2 flex w-full flex-row items-center justify-between">
+              <div>
+                <h3 className="text-xl">{developer.name}</h3>
+                <p className="text-base">{developer.role}</p>
               </div>
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div>
-                    <CardTitle className="text-xl">{developer.name}</CardTitle>
-                    <CardDescription className="text-base">{developer.role}</CardDescription>
-                  </div>
-                  <Badge variant="outline" className="bg-primary/10">
-                    {developer.focus}
-                  </Badge>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{developer.description}</p>
-              </CardContent>
-              <CardFooter className="flex justify-between gap-2">
-                <Button asChild variant="outline" size="sm" className="flex-1 gap-2">
-                  <Link href={`mailto:${developer.email}`}>
-                    <Mail className="h-4 w-4" />
-                    <span>Email</span>
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" size="sm" className="flex-1 gap-2">
-                  <Link href={developer.github} target="_blank" rel="noopener noreferrer">
-                    <SiGithub className="h-4 w-4" />
-                    <span>GitHub</span>
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
+              <Badge variant="outline" className="bg-primary/10">
+                {developer.focus}
+              </Badge>
+            </div>
+            <p className="text-muted-foreground">{developer.description}</p>
+            <div className="flex w-full flex-row items-center justify-between space-x-4">
+              <Button asChild variant="outline" className="flex-1">
+                <Link href={`mailto:${developer.email}`}>
+                  <Mail className="h-4 w-4" />
+                  <span>Email</span>
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="flex-1">
+                <Link href={developer.github} target="_blank" rel="noopener noreferrer">
+                  <SiGithub className="h-4 w-4" />
+                  <span>GitHub</span>
+                </Link>
+              </Button>
+            </div>
+          </div>
+        ))}
       </div>
-    </main>
+    </div>
   );
 }

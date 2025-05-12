@@ -12,7 +12,8 @@
     "embla",
     "autoplay",
     "timelapse",
-    "Benini"
+    "Benini",
+    "sull"
   ],
   "cSpell.ignorePaths": [
     "pnpm-lock.yaml",

@@ -22,9 +22,6 @@ import { cn } from '@/lib/utils';
 import Logo_dark from '@/public/logo_dark.svg';
 import Logo_light from '@/public/logo_light.svg';
 
-//FIXME: Complete reload when changing page
-//FIXME: Not closing the menu when clicking on a link (on mobile)
-
 const navItems: { title: string; href: string; children?: { title: string; href: string; description: string }[] }[] = [
   {
     title: 'Home',
@@ -41,7 +38,7 @@ const navItems: { title: string; href: string; children?: { title: string; href:
       {
         title: 'Mappa interattiva',
         href: '/mappe/interattiva',
-        description: 'Visualizza la mappa interattiva sulla siccità in Pianura Padana',
+        description: 'Visualizza la mappa interattiva',
       },
       {
         title: 'Time-lapse',
@@ -57,12 +54,12 @@ const navItems: { title: string; href: string; children?: { title: string; href:
       {
         title: 'Risorse',
         href: '/risorse',
-        description: 'Link utili e risorse per approfondire il tema della siccità',
+        description: 'Link utili, risorse e tecnologie utilizzate',
       },
       {
         title: 'Contatti',
         href: '/contatti',
-        description: 'Contattaci per maggiori informazioni o richieste',
+        description: 'Scopri il nostro team e contattaci',
       },
     ],
   },
@@ -169,6 +166,7 @@ export function Navbar() {
                                 key={child.title}
                                 href={child.href}
                                 className="text-muted-foreground hover:text-primary"
+                                onClick={() => setIsOpen(false)}
                               >
                                 {child.title}
                               </Link>
@@ -180,6 +178,7 @@ export function Navbar() {
                       <Link
                         href={item.href}
                         className="font-title flex items-center justify-between py-4 text-lg font-semibold hover:underline"
+                        onClick={() => setIsOpen(false)}
                       >
                         {item.title}
                       </Link>
