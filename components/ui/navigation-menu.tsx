@@ -1,3 +1,5 @@
+'use client';
+
 import { Content, Indicator, Item, Link, List, Root, Trigger, Viewport } from '@radix-ui/react-navigation-menu';
 import { cva } from 'class-variance-authority';
 import { ChevronDownIcon } from 'lucide-react';
