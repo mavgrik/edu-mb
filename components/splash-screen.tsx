@@ -36,14 +36,6 @@ export default function SplashScreen({
     };
   }, []);
 
-  // Aggiungere una classe CSS per mostrare immediatamente lo splash screen
-  useEffect(() => {
-    const splashScreenElement = document.getElementById('initial-splash-screen');
-    if (splashScreenElement) {
-      splashScreenElement.style.display = 'none'; // Nascondere lo splash screen iniziale dopo il montaggio
-    }
-  }, []);
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);

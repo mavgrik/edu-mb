@@ -23,12 +23,14 @@ export const useSplashScreen = () => useContext(SplashScreenContext);
 export function SplashScreenProvider({ children }: { children: React.ReactNode }) {
   const [showSplash, setShowSplash] = useState(false);
   const [splashComplete, setSplashComplete] = useState(false);
+  const [contentVisible, setContentVisible] = useState(false);
   const [hasSeenSplashScreen, setHasSeenSplashScreen] = useState(false);
   const pathname = usePathname();
 
   // Function to reset the splash screen
   const resetSplashScreen = () => {
     sessionStorage.removeItem('hasSeenSplashScreen');
+    setContentVisible(false);
     setShowSplash(true);
     setSplashComplete(false);
     setHasSeenSplashScreen(false);
@@ -42,12 +44,14 @@ export function SplashScreenProvider({ children }: { children: React.ReactNode }
       // First visit in this session - show splash screen
       setShowSplash(true);
       setSplashComplete(false);
+      setContentVisible(false);
       setHasSeenSplashScreen(false);
       // Mark that we've shown the splash screen in this session
       sessionStorage.setItem('hasSeenSplashScreen', 'true');
     } else {
       // Already seen in this session
       setSplashComplete(true);
+      setContentVisible(true);
       setHasSeenSplashScreen(true);
     }
   }, []);
@@ -57,6 +61,17 @@ export function SplashScreenProvider({ children }: { children: React.ReactNode }
     // The splash screen state is maintained during navigation
   }, [pathname]);
 
+  // Effect to handle the fade-in transition of content after splash screen completes
+  useEffect(() => {
+    if (splashComplete && !contentVisible) {
+      // Add a slight delay before showing content for a smoother transition
+      const timer = setTimeout(() => {
+        setContentVisible(true);
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [splashComplete, contentVisible]);
+
   return (
     <SplashScreenContext.Provider
       value={{
@@ -65,8 +80,13 @@ export function SplashScreenProvider({ children }: { children: React.ReactNode }
         resetSplashScreen,
       }}
     >
-      {/* Only render children if splash is complete or not needed */}
-      {splashComplete ? children : null}
+      {/* Render children with opacity transition */}
+      <div
+        className={`transition-opacity duration-700 ease-in-out ${contentVisible ? 'opacity-100' : 'opacity-0'}`}
+        style={{ display: splashComplete ? 'block' : 'none' }}
+      >
+        {children}
+      </div>
 
       {/* Show splash screen only when needed */}
       {showSplash && (

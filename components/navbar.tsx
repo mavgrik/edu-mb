@@ -5,7 +5,7 @@ import { Menu } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
-import { ComponentPropsWithoutRef, ComponentRef, forwardRef, useState } from 'react';
+import { ComponentPropsWithoutRef, ComponentRef, forwardRef, useEffect, useState } from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import {
@@ -92,15 +92,24 @@ const ListItem = forwardRef<ComponentRef<'a'>, ComponentPropsWithoutRef<'a'>>(
 ListItem.displayName = 'ListItem';
 
 export function Navbar() {
-  const { theme, resolvedTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  const currentTheme = theme === 'system' ? resolvedTheme : theme;
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <header className="bg-card border-muted-foreground sticky z-10 mb-4 flex items-center justify-between rounded-b-4xl border-b px-4 py-2 sm:px-6 md:px-8 lg:px-12 xl:px-24">
       <Link href="/" passHref className="flex items-center justify-center space-x-2">
-        <Image src={currentTheme === 'dark' ? Logo_dark : Logo_light} alt="MB Logo" width={50} height={50} priority />
+        <Image
+          src={mounted && resolvedTheme === 'dark' ? Logo_dark : Logo_light}
+          alt="MB Logo"
+          width={50}
+          height={50}
+          priority
+        />
         <p className="font-title px-4 text-xl leading-8 font-bold">
           La siccità in <span />
           <br className="xs:hidden inline" />
