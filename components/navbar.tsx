@@ -99,7 +99,7 @@ export function Navbar() {
 
   return (
     <header className="bg-card border-muted-foreground sticky z-10 mb-4 flex items-center justify-between rounded-b-4xl border-b px-4 py-2 sm:px-6 md:px-8 lg:px-12 xl:px-24">
-      <Link href="/" passHref className="flex items-center justify-center space-x-2">
+      <Link href="/" className="flex items-center justify-center space-x-2">
         <Image
           src={mounted && resolvedTheme === 'dark' ? Logo_dark : Logo_light}
           alt="MB Logo"
