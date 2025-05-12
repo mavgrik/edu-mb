@@ -20,7 +20,6 @@ export const metadata: Metadata = {
     'crisi idrica',
     'monitoraggio',
     'dati satellitari',
-    'rilevazioni sul campo',
     'analisi',
     'ambiente',
     'clima',
@@ -53,8 +52,7 @@ export const metadata: Metadata = {
     },
   },
   title: 'Siccità in Pianura Padana', // Title of the site
-  description:
-    'Monitoraggio e analisi della crisi idrica 2022-23 nella Pianura Padana attraverso dati satellitari e rilevazioni sul campo', // Description of the site
+  description: 'Monitoraggio e analisi della crisi idrica 2022-23 nella Pianura Padana attraverso dati satellitari', // Description of the site
   icons: {
     // Icons configuration
     icon: [
