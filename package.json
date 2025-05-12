@@ -1,6 +1,6 @@
 {
   "name": "edu-mb",
-  "version": "0.1.0",
+  "version": "0.4.0",
   "description": "Web application for managing and tracking air pollution",
   "packageManager": "pnpm@10.7.0",
   "license": "MIT",

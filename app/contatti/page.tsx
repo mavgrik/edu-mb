@@ -8,6 +8,8 @@ import { Button } from '@/components/ui/button';
 import Bonobo1 from '@/public/images/bonobo_1.jpeg';
 import Bonobo2 from '@/public/images/bonobo_2.jpeg';
 
+//TODO: Caricare le immagini
+
 export default function ContactsPage() {
   const developers = [
     {
