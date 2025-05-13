@@ -36,7 +36,7 @@ export default function ContactsPage() {
 
   return (
     <div className="flex flex-col items-center justify-start space-y-6">
-      <h1 className="text-4xl">Il Team</h1>
+      <h1 className="text-3xl">Il Team</h1>
       <div className="flex w-full flex-col items-stretch justify-between space-y-6 md:flex-row md:space-y-0 md:space-x-16 lg:space-x-32">
         {developers.map((developer) => (
           <div
