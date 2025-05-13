@@ -13,7 +13,10 @@
     "autoplay",
     "timelapse",
     "Benini",
-    "sull"
+    "sull",
+    "performanti",
+    "versionamento",
+    "cicd"
   ],
   "cSpell.ignorePaths": [
     "pnpm-lock.yaml",

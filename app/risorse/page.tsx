@@ -1,51 +1,75 @@
 import { SiGithub } from '@icons-pack/react-simple-icons';
-import { Code, Database, FileText, GitBranch, Globe, Mail, Package, Server, Workflow } from 'lucide-react';
+import { Code, Database, FileText, GitBranch, Globe, Package, Server, Workflow } from 'lucide-react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
 export default function ResourcesPage() {
   return (
     <div className="flex flex-col items-start justify-start space-y-6">
-      <div className="ftl:flex-row ftl:space-x-6 ftl:space-y-0 flex w-full flex-col items-start justify-between space-y-6 space-x-0">
-        <div className="ftl:w-2/3 flex flex-col items-start justify-start">
+      <div className="ftl:flex-row ftl:space-x-6 ftl:space-y-0 flex w-full flex-col items-stretch justify-between space-y-6 space-x-0">
+        <div className="ftl:w-2/5 flex flex-col items-start justify-start">
           <h1 className="mb-4 text-3xl">Risorse</h1>
           <p className="text-muted-foreground">
             Trova informazioni sulle nostre licenze, fonti di dati, tecnologie e processo di sviluppo.
           </p>
-          {/* TODO: Aggiungere bottoni */}
         </div>
 
-        <div className="ftl:max-w-1/3 ftl:w-auto bg-muted flex w-full flex-col items-start justify-between rounded-lg p-6">
-          <div className="mb-4 flex flex-row items-center space-x-2">
-            <Mail className="h-5 w-5" />
-            <h2 className="text-lg">Contatti</h2>
+        <div className="ftl:w-3/5 bg-muted flex w-full flex-col items-start justify-between rounded-lg border p-3">
+          <h2 className="text-lg">Indice</h2>
+          <Separator className="mt-2 mb-4" />
+          <div className="flex w-full flex-row flex-wrap items-start justify-start space-y-2 space-x-6">
+            <div className="flex flex-grow flex-row items-start justify-around space-x-6">
+              <Link
+                href="#licensing"
+                className="hover:text-primary flex items-center text-sm transition-colors hover:underline"
+              >
+                <FileText className="mr-2 h-4 w-4" />
+                Informazioni sulle Licenze
+              </Link>
+              <Link
+                href="#datasets"
+                className="hover:text-primary flex items-center text-sm transition-colors hover:underline"
+              >
+                <Database className="mr-2 h-4 w-4" />
+                Dataset
+              </Link>
+            </div>
+            <div className="flex flex-grow flex-row items-start justify-around space-x-6">
+              <Link
+                href="#technologies"
+                className="hover:text-primary flex items-center text-sm transition-colors hover:underline"
+              >
+                <Code className="mr-2 h-4 w-4" />
+                Tecnologie usate
+              </Link>
+              <Link
+                href="#cicd"
+                className="hover:text-primary flex items-center text-sm transition-colors hover:underline"
+              >
+                <Workflow className="mr-2 h-4 w-4" />
+                Pipeline CI/CD
+              </Link>
+            </div>
           </div>
-          <Separator className="mb-4" />
-          <p className="mb-4">Scopri il nostro team e contattaci.</p>
-          <Button asChild>
-            <Link href="/contatti">Contattaci</Link>
-          </Button>
         </div>
       </div>
 
-      <div className="flex w-full flex-col items-start justify-start">
+      <div id="licensing" className="flex w-full flex-col items-start justify-start">
         <div className="mb-4 flex items-center space-x-2">
           <FileText className="h-5 w-5" />
           <h2 className="text-2xl">Informazioni sulle Licenze</h2>
         </div>
         <Separator className="mb-4" />
-        <div className="bg-muted flex w-full flex-col items-start justify-start rounded-lg p-6">
+        <div className="bg-muted flex w-full flex-col items-start justify-start rounded-lg border p-6">
           <h3 className="text-xl">Licenza Generale</h3>
           <p className="text-muted-foreground text-sm">Termini di utilizzo per il nostro sito web</p>
-          <p className="my-4">
+          <p className="mt-4 mb-2">
             Tutti i contenuti di questo sito web sono concessi in licenza sotto la Licenza MIT, salvo diversa
             indicazione. Questo significa che sei libero di utilizzare, copiare, modificare e distribuire i contenuti, a
             condizione che includa l&apos;avviso di copyright originale e la dichiarazione di esclusione di
             responsabilità.
           </p>
-          <div className="bg-card rounded-lg p-4">
+          <div className="bg-card rounded-lg border p-4 transition-transform hover:scale-102">
             <h4 className="mb-2 text-lg">Licenze dei Dati</h4>
             <p className="text-sm">
               I dati satellitari visualizzati su questo sito web provengono dal Copernicus Browser e sono soggetti alla
@@ -56,172 +80,157 @@ export default function ResourcesPage() {
         </div>
       </div>
 
-      {/*TODO: Da qui in poi */}
-      <section className="mb-12">
-        <div className="mb-4 flex items-center gap-2">
+      <div id="datasets" className="flex w-full flex-col items-start justify-start">
+        <div className="mb-4 flex items-center space-x-2">
           <Database className="h-5 w-5" />
-          <h2 className="text-2xl font-semibold">Data Sources</h2>
+          <h2 className="text-2xl">Dataset</h2>
         </div>
-        <Separator className="mb-6" />
-        <Card>
-          <CardHeader>
-            <CardTitle>Copernicus Browser</CardTitle>
-            <CardDescription>Our primary source for satellite data</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p className="mb-4">
-              We utilize the Copernicus Browser as our primary dataset source. Copernicus provides high-quality Earth
-              observation data through its Sentinel satellites.
-            </p>
-            <p>
-              The Copernicus program offers comprehensive, free, and open access to Earth observation data, enabling us
-              to provide accurate and up-to-date information for our users.
-            </p>
-          </CardContent>
-        </Card>
-      </section>
+        <Separator className="mb-4" />
+        <div className="bg-muted flex w-full flex-col items-start justify-start rounded-lg border p-6">
+          <h3 className="text-xl">Copernicus Browser</h3>
+          <p className="text-muted-foreground text-sm">La nostra fonte principale per i dati satellitari</p>
+          <p className="mt-4 mb-2">
+            Utilizziamo il Copernicus Browser come nostra principale fonte di dati. Copernicus fornisce dati di
+            osservazione della Terra di alta qualità attraverso i suoi satelliti Sentinel.
+          </p>
+          <p>
+            Il programma Copernicus offre un accesso completo, gratuito e aperto ai dati di osservazione della Terra,
+            permettendoci di fornire informazioni accurate e aggiornate ai nostri utenti.
+          </p>
+        </div>
+      </div>
 
-      {/* Technologies Used */}
-      <section className="mb-12">
-        <div className="mb-4 flex items-center gap-2">
+      <div id="technologies" className="flex w-full flex-col items-start justify-start">
+        <div className="mb-4 flex items-center space-x-2">
           <Code className="h-5 w-5" />
-          <h2 className="text-2xl font-semibold">Technologies Used</h2>
+          <h2 className="text-2xl">Tecnologie usate</h2>
         </div>
-        <Separator className="mb-6" />
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <Card>
-            <CardHeader className="flex flex-row items-center gap-2 pb-2">
+        <Separator className="mb-4" />
+        <div className="ftl:grid-cols-2 grid w-full grid-cols-1 gap-6">
+          <div className="bg-muted flex w-full flex-col rounded-lg border p-6 transition-transform hover:scale-105">
+            <div className="mb-2 flex flex-row items-center justify-start space-x-2">
               <Package className="text-muted-foreground h-5 w-5" />
-              <CardTitle className="text-lg">pnpm</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground text-sm">
-                Fast, disk space efficient package manager that powers our development workflow.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="flex flex-row items-center gap-2 pb-2">
-              <Code className="text-muted-foreground h-5 w-5" />
-              <CardTitle className="text-lg">Next.js</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground text-sm">
-                React framework that enables server-side rendering and static site generation.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="flex flex-row items-center gap-2 pb-2">
-              <Server className="text-muted-foreground h-5 w-5" />
-              <CardTitle className="text-lg">Vercel</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground text-sm">
-                Platform for frontend frameworks and static sites, providing seamless deployment.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="flex flex-row items-center gap-2 pb-2">
-              <SiGithub className="text-muted-foreground h-5 w-5" />
-              <CardTitle className="text-lg">GitHub</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground text-sm">
-                Version control platform that hosts our codebase and facilitates collaboration.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="flex flex-row items-center gap-2 pb-2">
-              <Globe className="text-muted-foreground h-5 w-5" />
-              <CardTitle className="text-lg">Tailwind CSS</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground text-sm">
-                Utility-first CSS framework for rapidly building custom user interfaces.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="flex flex-row items-center gap-2 pb-2">
-              <GitBranch className="text-muted-foreground h-5 w-5" />
-              <CardTitle className="text-lg">TypeScript</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground text-sm">
-                Strongly typed programming language that builds on JavaScript for better code quality.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* CI/CD Explanation */}
-      <section className="mb-12">
-        <div className="mb-4 flex items-center gap-2">
-          <Workflow className="h-5 w-5" />
-          <h2 className="text-2xl font-semibold">CI/CD Pipeline</h2>
-        </div>
-        <Separator className="mb-6" />
-        <Card>
-          <CardHeader>
-            <CardTitle>Continuous Integration & Deployment</CardTitle>
-            <CardDescription>Our automated development workflow</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-6">
-              <div>
-                <h4 className="mb-2 font-medium">GitHub Integration</h4>
-                <p className="text-muted-foreground">
-                  Our development process begins with GitHub, where all code changes are tracked and reviewed. We use
-                  pull requests for code reviews and branch protection rules to ensure code quality.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="mb-2 font-medium">Automated Testing</h4>
-                <p className="text-muted-foreground">
-                  Every code change triggers automated tests through GitHub Actions. This includes unit tests,
-                  integration tests, and linting to maintain code quality and prevent regressions.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="mb-2 font-medium">Build Process</h4>
-                <p className="text-muted-foreground">
-                  Upon successful testing, our build process compiles the TypeScript code, optimizes assets, and
-                  prepares the application for deployment using Next.js build optimizations.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="mb-2 font-medium">Vercel Deployment</h4>
-                <p className="text-muted-foreground">
-                  We use Vercel for automatic deployments. Each pull request generates a preview deployment, while
-                  merges to the main branch trigger production deployments. This ensures continuous delivery of new
-                  features and bug fixes.
-                </p>
-              </div>
-
-              <div className="bg-muted rounded-md p-4">
-                <h4 className="mb-2 font-medium">Workflow Automation</h4>
-                <p>
-                  Our CI/CD pipeline automates the entire process from code commit to production deployment, reducing
-                  manual intervention and ensuring consistent, reliable releases. This approach allows us to deliver
-                  updates quickly while maintaining high quality standards.
-                </p>
-              </div>
+              <h4 className="text-lg">pnpm</h4>
             </div>
-          </CardContent>
-        </Card>
-      </section>
+            <p className="text-muted-foreground text-sm">
+              Gestore di pacchetti veloce ed efficiente in termini di spazio su disco che alimenta il nostro flusso di
+              lavoro di sviluppo.
+            </p>
+          </div>
+
+          <div className="bg-muted flex w-full flex-col rounded-lg border p-6 transition-transform hover:scale-105">
+            <div className="mb-2 flex flex-row items-center justify-start space-x-2">
+              <Code className="text-muted-foreground h-5 w-5" />
+              <h4 className="text-lg">Next.js</h4>
+            </div>
+            <p className="text-muted-foreground text-sm">
+              Framework React che permette rendering lato server e generazione di siti statici e dinamici performanti,
+              ottimizzati per SEO e caricamenti veloci.
+            </p>
+          </div>
+
+          <div className="bg-muted flex w-full flex-col rounded-lg border p-6 transition-transform hover:scale-105">
+            <div className="mb-2 flex flex-row items-center justify-start space-x-2">
+              <Server className="text-muted-foreground h-5 w-5" />
+              <h4 className="text-lg">Vercel</h4>
+            </div>
+            <p className="text-muted-foreground text-sm">
+              Hosting cloud ottimizzato per frontend moderni che consente deployment automatici, CDN globale e
+              integrazione continua con Git per siti veloci e scalabili.
+            </p>
+          </div>
+
+          <div className="bg-muted flex w-full flex-col rounded-lg border p-6 transition-transform hover:scale-105">
+            <div className="mb-2 flex flex-row items-center justify-start space-x-2">
+              <SiGithub className="text-muted-foreground h-5 w-5" />
+              <h4 className="text-lg">GitHub</h4>
+            </div>
+            <p className="text-muted-foreground text-sm">
+              Piattaforma di versionamento e collaborazione che consente gestione del codice, controllo delle modifiche
+              e integrazione continua tramite Git in modo semplice e centralizzato.
+            </p>
+          </div>
+
+          <div className="bg-muted flex w-full flex-col rounded-lg border p-6 transition-transform hover:scale-105">
+            <div className="mb-2 flex flex-row items-center justify-start space-x-2">
+              <Globe className="text-muted-foreground h-5 w-5" />
+              <h4 className="text-lg">Tailwind CSS</h4>
+            </div>
+            <p className="text-muted-foreground text-sm">
+              Framework CSS utility-first che consente di creare interfacce moderne, responsive e personalizzabili
+              direttamente nel markup senza scrivere fogli di stile tradizionali.
+            </p>
+          </div>
+
+          <div className="bg-muted flex w-full flex-col rounded-lg border p-6 transition-transform hover:scale-105">
+            <div className="mb-2 flex flex-row items-center justify-start space-x-2">
+              <GitBranch className="text-muted-foreground h-5 w-5" />
+              <h4 className="text-lg">TypeScript</h4>
+            </div>
+            <p className="text-muted-foreground text-sm">
+              Superset di JavaScript che aggiunge tipizzazione statica e strumenti avanzati per scrivere codice più
+              sicuro, scalabile e mantenibile.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="cicd" className="flex w-full flex-col items-start justify-start">
+        <div className="mb-4 flex items-center space-x-2">
+          <Workflow className="h-5 w-5" />
+          <h2 className="text-2xl">Pipeline CI/CD</h2>
+        </div>
+        <Separator className="mb-4" />
+        <div className="bg-muted flex w-full flex-col items-start justify-start space-y-4 rounded-lg border p-6">
+          <h4>Integrazione e Distribuzione Continua</h4>
+          <p>Il nostro flusso di lavoro e di sviluppo automatizzato</p>
+
+          <div className="bg-card w-full rounded-lg border p-4 transition-transform hover:scale-102">
+            <h4 className="mb-2 font-medium">Integrazione con GitHub</h4>
+            <p className="text-muted-foreground">
+              Il nostro processo di sviluppo inizia con GitHub, dove tutte le modifiche al codice vengono tracciate e
+              revisionate. Utilizziamo pull request per le revisioni del codice e regole di protezione dei branch per
+              garantire la qualità del codice.
+            </p>
+          </div>
+
+          <div className="bg-card w-full rounded-lg border p-4 transition-transform hover:scale-102">
+            <h4 className="mb-2 font-medium">Test Automatizzati</h4>
+            <p className="text-muted-foreground">
+              Ogni modifica al codice attiva test automatizzati tramite GitHub Actions. Questo include test di
+              formattazione e linting per mantenere la qualità e coerenza del codice e prevenire errori o inconsistenze.
+            </p>
+          </div>
+
+          <div className="bg-card w-full rounded-lg border p-4 transition-transform hover:scale-102">
+            <h4 className="mb-2 font-medium">Processo di Build</h4>
+            <p className="text-muted-foreground">
+              Dopo il successo dei test, il nostro processo di build compila il codice TypeScript, ottimizza le risorse
+              e prepara l&apos;applicazione per la distribuzione utilizzando le ottimizzazioni di build di Next.js.
+              Inoltre, utilizziamo PostCSS per trasformare e ottimizzare i nostri file CSS, applicando plugin come
+              autoprefixer e cssnano per garantire compatibilità e prestazioni elevate.
+            </p>
+          </div>
+
+          <div className="bg-card w-full rounded-lg border p-4 transition-transform hover:scale-102">
+            <h4 className="mb-2 font-medium">Distribuzione con Vercel</h4>
+            <p className="text-muted-foreground">
+              Utilizziamo Vercel per le distribuzioni automatiche. Ogni pull request genera una distribuzione di
+              anteprima, mentre le fusioni nel branch principale attivano distribuzioni in produzione. Questo garantisce
+              una consegna continua di nuove funzionalità e correzioni di bug.
+            </p>
+          </div>
+
+          <div className="bg-card w-full rounded-lg border p-4 transition-transform hover:scale-102">
+            <h4 className="mb-2 font-medium">Automazione del Flusso di Lavoro</h4>
+            <p className="text-muted-foreground">
+              La nostra pipeline CI/CD automatizza l&apos;intero processo, dal commit del codice alla distribuzione in
+              produzione, riducendo l&apos;intervento manuale e garantendo rilasci consistenti e affidabili. Questo
+              approccio ci consente di fornire aggiornamenti rapidamente mantenendo alti standard di qualità.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
