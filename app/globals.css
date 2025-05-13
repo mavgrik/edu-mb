@@ -127,7 +127,7 @@
 @layer base {
   /* Apply background and text color to the body */
   body {
-    @apply bg-card text-foreground border-border flex min-h-screen flex-col scroll-smooth;
+    @apply bg-card text-foreground border-border flex min-h-screen flex-col;
   }
   /* Apply text to title elements */
   h1,
