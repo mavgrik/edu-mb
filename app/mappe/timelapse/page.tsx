@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import TimeLapse from '@/public/images/timelapse.png';
-import Legenda from '@/public/images/legenda.png';
 
 //TODO: ADD Timelapse Image
 //TODO: ADD Video Controller
@@ -12,22 +11,20 @@ export default function timelapse() {
         <Image src={TimeLapse} alt="Timelapse Image" className="h-auto w-auto rounded-lg object-cover" priority />
       </div>
 
-      <div className="flex-row-reverse space-x-6 space-x-reverse ftl:space-y-0 flex w-full">
+      <div className="ftl:space-y-0 flex w-full flex-row-reverse space-x-2 space-x-reverse sm:space-x-2 sm:space-x-reverse md:space-x-6 md:space-x-reverse">
         <div className="bg-muted ftl:w-5/6 flex w-5/6 flex-col rounded-lg border p-6">
           <h2 className="mb-4">Legenda:</h2>
           <p>
             Nel timelapse NDWI, il blu (NDWI ≈ +0.8) indica la presenza di acqua superficiale, come fiumi e laghi; il
-            bianco (NDWI ≈ 0) segnala suoli umidi o zone di transizione tra acqua e terra; il verde (NDWI ≈ –0.8)
+            bianco (NDWI ≈ 0) segnala suoli umidi o zone di transizione tra acqua e terra; il verde (NDWI ≈ -0.8)
             rappresenta aree vegetate o suoli asciutti, privi di acqua visibile.
           </p>
         </div>
 
-        <div className="bg-muted ftl:w-1/6 flex w-1/6 items-center justify-center rounded-lg border p-6">
-          <Image
-            src={Legenda}
-            alt="Legenda Image"
-            className="h-auto w-max rounded-lg object-cover"
-            priority
+        <div className="bg-muted ftl:w-1/6 flex w-1/6 items-center justify-center rounded-lg border p-2 sm:p-4 md:p-6">
+          <div
+            className="h-full min-h-64 w-full max-w-24 rounded-lg"
+            style={{ background: 'linear-gradient(to bottom, blue, white, green)' }}
           />
         </div>
       </div>
@@ -43,10 +40,10 @@ export default function timelapse() {
             che si avanza nel tempo, è possibile notare una progressiva riduzione dell’ampiezza del corso d’acqua e
             delle aree umide circostanti. In alcune fasi si osserva addirittura un’interruzione quasi completa della
             continuità fluviale, sintomo evidente della crisi idrica che ha colpito il bacino del Po a partire dal 2022.
-            Questo fenomeno non è solo una preoccupazione ambientale: la scarsità d&apos;acqua compromette l’agricoltura,
-            minaccia gli ecosistemi fluviali, e può danneggiare l’economia locale. Il timelapse mostra in modo diretto e
-            tangibile quanto il cambiamento climatico e la gestione errata delle risorse idriche stiano già producendo
-            effetti visibili sul territorio italiano.
+            Questo fenomeno non è solo una preoccupazione ambientale: la scarsità d&apos;acqua compromette
+            l’agricoltura, minaccia gli ecosistemi fluviali, e può danneggiare l’economia locale. Il timelapse mostra in
+            modo diretto e tangibile quanto il cambiamento climatico e la gestione errata delle risorse idriche stiano
+            già producendo effetti visibili sul territorio italiano.
           </p>
         </div>
       </div>

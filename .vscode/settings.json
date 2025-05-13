@@ -30,8 +30,5 @@
     ".vscode-insiders"
   ],
   "editor.tabSize": 2,
-  "editor.detectIndentation": false,
-	"files.associations": {
-		"wrangler.json": "jsonc"
-	}
+  "editor.detectIndentation": false
 }
