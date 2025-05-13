@@ -15,7 +15,7 @@ export default function Home() {
         <Image src={Hero} alt="Hero Image" className="rounded-lg object-cover" priority />
       </AspectRatio>
 
-      <div className="bg-muted rounded-lg p-6">
+      <div className="bg-muted rounded-lg p-6 border">
         <div className="mb-4">
           <p className="ftl:columns-2 columns-1 gap-4 text-pretty">
             Negli ultimi tre anni, la Pianura Padana ha vissuto una delle peggiori crisi idriche mai registrate. Il
@@ -44,7 +44,7 @@ export default function Home() {
       </div>
 
       <div className="ftl:flex-row-reverse ftl:space-x-6 ftl:space-x-reverse ftl:space-y-0 flex w-full flex-col-reverse items-stretch space-y-6 space-y-reverse space-x-0">
-        <div className="bg-muted ftl:w-1/3 flex w-full flex-col rounded-lg p-6">
+        <div className="bg-muted ftl:w-1/3 flex w-full flex-col rounded-lg p-6 border">
           <h2 className="mb-4">Mappa Interattiva</h2>
           <p>
             Esplora la Pianura Padana e il corso del fiume Po con una mappa interattiva dettagliata e intuitiva. Potrai
@@ -60,13 +60,13 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="bg-muted ftl:w-2/3 flex w-full items-center justify-center rounded-lg p-6">
+        <div className="bg-muted border ftl:w-2/3 flex w-full items-center justify-center rounded-lg p-6">
           <Image src={Mappa} alt="Mappa Image" className="h-auto w-auto rounded-lg object-cover" priority />
         </div>
       </div>
 
       <div className="ftl:flex-row ftl:space-x-6 ftl:space-y-0 flex w-full flex-col-reverse items-stretch space-y-6 space-y-reverse space-x-0">
-        <div className="bg-muted ftl:w-1/3 ftl:p-8 w-full rounded-lg p-6">
+        <div className="bg-muted border ftl:w-1/3 ftl:p-8 w-full rounded-lg p-6">
           <h2 className="mb-4">Timelapse</h2>
           <p>
             Osserva i cambiamenti della Pianura Padana e del Po nel tempo con il nostro timelapse interattivo. Dalle
@@ -82,7 +82,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="bg-muted ftl:w-2/3 flex w-full items-center justify-center rounded-lg p-6">
+        <div className="bg-muted border ftl:w-2/3 flex w-full items-center justify-center rounded-lg p-6">
           <Image src={TimeLapse} alt="Timelapse Image" className="h-auto w-auto rounded-lg object-cover" priority />
         </div>
       </div>
