@@ -5,6 +5,9 @@ import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 
+//TODO: Complete the component (design)
+//TODO: Add a skeleton loader
+
 interface TimelapsePlayerProps {
   src: string;
   jumpSeconds?: number;
