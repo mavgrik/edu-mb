@@ -8,8 +8,6 @@ import { Navbar } from '@/components/navbar';
 import { SplashScreenProvider } from '@/components/splash-screen-provider';
 import { ThemeProvider } from '@/components/theme-provider';
 
-//FIXME:  GET /apple-touch-icon-precomposed.png 404 in 518ms /// GET /apple-touch-icon.png 404 in 518ms
-
 // Metadata configuration for the application
 export const metadata: Metadata = {
   generator: 'Next.js', // Generator of the site
