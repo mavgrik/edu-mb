@@ -8,16 +8,15 @@ import { Slider } from '@/components/ui/slider';
 
 interface TimelapsePlayerProps {
   src: string;
-  jumpSeconds?: number;
 }
 
-export default function TimelapsePlayer({ src, jumpSeconds = 5 }: TimelapsePlayerProps) {
+export default function TimelapsePlayer({ src }: TimelapsePlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const loadingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const jumpSeconds = 2;
 
   useEffect(() => {
     const video = videoRef.current;
@@ -41,10 +40,7 @@ export default function TimelapsePlayer({ src, jumpSeconds = 5 }: TimelapsePlaye
     video.addEventListener('loadedmetadata', updateDuration);
     video.addEventListener('ended', handleEnded);
 
-    // Backup timeout to ensure loading state is cleared
-    loadingTimeoutRef.current = setTimeout(() => {
-      setIsLoading(false);
-    }, 5000); // 5 second backup timeout
+    video.load();
 
     return () => {
       video.removeEventListener('canplay', handleCanPlay);
@@ -53,11 +49,6 @@ export default function TimelapsePlayer({ src, jumpSeconds = 5 }: TimelapsePlaye
       video.removeEventListener('timeupdate', updateTime);
       video.removeEventListener('loadedmetadata', updateDuration);
       video.removeEventListener('ended', handleEnded);
-
-      // Clear timeout on cleanup
-      if (loadingTimeoutRef.current) {
-        clearTimeout(loadingTimeoutRef.current);
-      }
     };
   }, []);
 
@@ -114,9 +105,6 @@ export default function TimelapsePlayer({ src, jumpSeconds = 5 }: TimelapsePlaye
           playsInline
           onClick={togglePlay}
           muted
-          onLoadedData={() => setIsLoading(false)}
-          onCanPlay={() => setIsLoading(false)}
-          onCanPlayThrough={() => setIsLoading(false)}
         />
         {/* Play/Pause overlay */}
         <div
@@ -134,7 +122,7 @@ export default function TimelapsePlayer({ src, jumpSeconds = 5 }: TimelapsePlaye
       </div>
       {isLoading && (
         <div className="flex items-center justify-center">
-          <Skeleton className="aspect-video w-full" />
+          <Skeleton className="aspect-[2176/1080] w-full" />
         </div>
       )}
 
@@ -144,7 +132,7 @@ export default function TimelapsePlayer({ src, jumpSeconds = 5 }: TimelapsePlaye
           value={[currentTime]}
           min={0}
           max={28}
-          step={1.99}
+          step={2}
           onValueChange={handleTimelineChange}
           className="mb-4 cursor-pointer"
         />
