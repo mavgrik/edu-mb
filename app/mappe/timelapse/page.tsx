@@ -1,15 +1,9 @@
-import Image from 'next/image';
-import TimeLapse from '@/public/images/timelapse.png';
-
-//TODO: ADD Timelapse Image
-//TODO: ADD Video Controller
+import TimelapsePlayer from '@/components/video-player';
 
 export default function timelapse() {
   return (
     <div className="space-y-6">
-      <div className="bg-muted flex w-full items-center justify-center rounded-lg border p-6">
-        <Image src={TimeLapse} alt="Timelapse Image" className="h-auto w-auto rounded-lg object-cover" priority />
-      </div>
+      <TimelapsePlayer src="../videos/timelapse.mp4" jumpSeconds={10} />
 
       <div className="ftl:space-y-0 flex w-full flex-row-reverse space-x-2 space-x-reverse sm:space-x-2 sm:space-x-reverse md:space-x-6 md:space-x-reverse">
         <div className="bg-muted ftl:w-5/6 flex w-5/6 flex-col rounded-lg border p-6">
