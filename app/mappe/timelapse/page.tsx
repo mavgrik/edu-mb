@@ -3,7 +3,6 @@ import TimelapsePlayer from '@/components/video-player';
 export default function timelapse() {
   return (
     <div className="space-y-6">
-      {/* TODO: Compress video */}
       <TimelapsePlayer src="../videos/timelapse.mp4" jumpSeconds={2} />
 
       <div className="ftl:space-y-0 flex w-full flex-row-reverse space-x-2 space-x-reverse sm:space-x-2 sm:space-x-reverse md:space-x-6 md:space-x-reverse">
