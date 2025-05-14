@@ -82,8 +82,13 @@ export default function Home() {
         </div>
 
         <div className="bg-muted ftl:w-2/3 flex w-full items-center justify-center overflow-hidden rounded-lg border p-6">
-        <Link href={"/mappe/timelapse"} className="h-full w-full">
-          <Image src={TimeLapse} alt="Timelapse Image" className="h-full min-h-96 xl:max-h-128 w-full rounded-lg object-cover" priority />
+          <Link href={'/mappe/timelapse'} className="h-full w-full">
+            <Image
+              src={TimeLapse}
+              alt="Timelapse Image"
+              className="h-full min-h-96 w-full rounded-lg object-cover xl:max-h-128"
+              priority
+            />
           </Link>
         </div>
       </div>
