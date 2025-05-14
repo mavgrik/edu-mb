@@ -3,10 +3,8 @@
 import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Skeleton } from '@/components/ui/skeleton';
 import { Slider } from '@/components/ui/slider';
-
-//TODO: Complete the component (design)
-//TODO: Add a skeleton loader
 
 interface TimelapsePlayerProps {
   src: string;
@@ -18,26 +16,48 @@ export default function TimelapsePlayer({ src, jumpSeconds = 5 }: TimelapsePlaye
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const loadingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
+    const handleCanPlay = () => setIsLoading(false);
     const updateTime = () => setCurrentTime(video.currentTime);
     const updateDuration = () => setDuration(video.duration);
     const handleEnded = () => setIsPlaying(false);
 
+    // Check if video is already loaded from cache
+    if (video.readyState >= 3) {
+      setIsLoading(false);
+    }
+
+    // Multiple event listeners to catch all possible loading states
+    video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('canplaythrough', handleCanPlay);
+    video.addEventListener('loadeddata', handleCanPlay);
     video.addEventListener('timeupdate', updateTime);
     video.addEventListener('loadedmetadata', updateDuration);
     video.addEventListener('ended', handleEnded);
 
-    // Mute the video by default since we don't need audio
-    video.muted = true;
+    // Backup timeout to ensure loading state is cleared
+    loadingTimeoutRef.current = setTimeout(() => {
+      setIsLoading(false);
+    }, 5000); // 5 second backup timeout
 
     return () => {
+      video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('canplaythrough', handleCanPlay);
+      video.removeEventListener('loadeddata', handleCanPlay);
       video.removeEventListener('timeupdate', updateTime);
       video.removeEventListener('loadedmetadata', updateDuration);
       video.removeEventListener('ended', handleEnded);
+
+      // Clear timeout on cleanup
+      if (loadingTimeoutRef.current) {
+        clearTimeout(loadingTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -84,17 +104,20 @@ export default function TimelapsePlayer({ src, jumpSeconds = 5 }: TimelapsePlaye
     setCurrentTime(newTime);
   };
 
-  const formatTime = (time: number) => {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-  };
-
   return (
-    <div className="bg-card rounded-lg border">
+    <div className="bg-muted rounded-lg border">
       <div className="relative">
-        <video ref={videoRef} className="w-full rounded-t-lg" src={src} playsInline onClick={togglePlay} />
-
+        <video
+          ref={videoRef}
+          className={`w-full rounded-t-lg ${isLoading ? 'hidden' : 'block'}`}
+          src={src}
+          playsInline
+          onClick={togglePlay}
+          muted
+          onLoadedData={() => setIsLoading(false)}
+          onCanPlay={() => setIsLoading(false)}
+          onCanPlayThrough={() => setIsLoading(false)}
+        />
         {/* Play/Pause overlay */}
         <div
           className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity hover:opacity-100"
@@ -105,40 +128,39 @@ export default function TimelapsePlayer({ src, jumpSeconds = 5 }: TimelapsePlaye
             size="icon"
             className="h-16 w-16 rounded-full bg-black/50 text-white hover:bg-black/70"
           >
-            {isPlaying ? <Pause className="h-8 w-8" /> : <Play className="h-8 w-8" />}
+            {isPlaying ? <Pause /> : <Play />}
           </Button>
         </div>
       </div>
-
-      <div className="p-4">
-        {/* Timeline slider */}
-        <div className="mb-4">
-          <Slider
-            value={[currentTime]}
-            min={0}
-            max={duration || 100}
-            step={0.01}
-            onValueChange={handleTimelineChange}
-            className="cursor-pointer"
-          />
-          <div className="text-muted-foreground mt-1 flex justify-between text-sm">
-            <span>{formatTime(currentTime)}</span>
-            <span>{formatTime(duration)}</span>
-          </div>
+      {isLoading && (
+        <div className="flex items-center justify-center">
+          <Skeleton className="aspect-video w-full" />
         </div>
+      )}
+
+      <div className="mx-6 mt-4 mb-6">
+        {/* Timeline slider */}
+        <Slider
+          value={[currentTime]}
+          min={0}
+          max={28}
+          step={1.99}
+          onValueChange={handleTimelineChange}
+          className="mb-4 cursor-pointer"
+        />
 
         {/* Controls */}
-        <div className="flex items-center justify-center gap-2">
-          <Button variant="outline" onClick={jumpBackward} className="flex items-center gap-1">
+        <div className="flex items-center justify-center space-x-4">
+          <Button variant="outline" onClick={jumpBackward} className="flex items-center">
             <ChevronLeft className="h-5 w-5" />
             <span>{jumpSeconds}s</span>
           </Button>
 
-          <Button variant="default" size="icon" onClick={togglePlay} className="mx-2">
+          <Button variant="default" size="icon" onClick={togglePlay}>
             {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
           </Button>
 
-          <Button variant="outline" onClick={jumpForward} className="flex items-center gap-1">
+          <Button variant="outline" onClick={jumpForward} className="flex items-center">
             <span>{jumpSeconds}s</span>
             <ChevronRight className="h-5 w-5" />
           </Button>
