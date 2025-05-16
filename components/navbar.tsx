@@ -6,15 +6,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { ComponentPropsWithoutRef, ComponentRef, forwardRef, useEffect, useState } from 'react';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Accordion, AccordionItem } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
@@ -22,7 +20,7 @@ import { cn } from '@/lib/utils';
 import Logo_dark from '@/public/logo_dark.svg';
 import Logo_light from '@/public/logo_light.svg';
 
-const navItems: { title: string; href: string; children?: { title: string; href: string; description: string }[] }[] = [
+const navItems: { title: string; href: string }[] = [
   {
     title: 'Home',
     href: '/',
@@ -98,24 +96,9 @@ export function Navbar() {
           <NavigationMenuList>
             {navItems.map((item) => (
               <NavigationMenuItem key={item.title}>
-                {item.children ? (
-                  <NavigationMenuTrigger className="mr-2">{item.title}</NavigationMenuTrigger>
-                ) : (
-                  <NavigationMenuLink href={item.href} className={`${navigationMenuTriggerStyle()} mr-2`}>
-                    {item.title}
-                  </NavigationMenuLink>
-                )}
-                {item.children && (
-                  <NavigationMenuContent>
-                    <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                      {item.children.map((child) => (
-                        <ListItem key={child.title} title={child.title} href={child.href}>
-                          {child.description}
-                        </ListItem>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                )}
+                <NavigationMenuLink href={item.href} className={`${navigationMenuTriggerStyle()} mr-2`}>
+                  {item.title}
+                </NavigationMenuLink>
               </NavigationMenuItem>
             ))}
           </NavigationMenuList>
@@ -136,33 +119,13 @@ export function Navbar() {
               <Accordion type="single" collapsible className="w-full px-4">
                 {navItems.map((item, index) => (
                   <AccordionItem value={`item-${index}`} key={item.title}>
-                    {item.children ? (
-                      <>
-                        <AccordionTrigger className="font-title text-lg font-semibold">{item.title}</AccordionTrigger>
-                        <AccordionContent>
-                          <div className="flex flex-col space-y-2 pl-4">
-                            {item.children.map((child) => (
-                              <Link
-                                key={child.title}
-                                href={child.href}
-                                className="text-muted-foreground hover:text-primary"
-                                onClick={() => setIsOpen(false)}
-                              >
-                                {child.title}
-                              </Link>
-                            ))}
-                          </div>
-                        </AccordionContent>
-                      </>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        className="font-title flex items-center justify-between py-4 text-lg font-semibold hover:underline"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item.title}
-                      </Link>
-                    )}
+                    <Link
+                      href={item.href}
+                      className="font-title flex items-center justify-between py-4 text-lg font-semibold hover:underline"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.title}
+                    </Link>
                   </AccordionItem>
                 ))}
               </Accordion>
