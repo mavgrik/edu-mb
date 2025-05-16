@@ -47,6 +47,8 @@
   --text-mm: 1.25rem;
   --text-lg: 1.5rem;
   --text-xl: 1.75rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.25rem;
   --font-title: var(--baloo);
   --font-body: var(--signika);
   --breakpoint-xs: 500px;
@@ -55,7 +57,6 @@
 }
 
 :root {
-  --radius: 0.5rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(0.89 0 0);
@@ -126,7 +127,7 @@
 @layer base {
   /* Apply background and text color to the body */
   body {
-    @apply bg-card text-foreground border-border flex min-h-screen flex-col scroll-smooth;
+    @apply bg-card text-foreground border-border flex min-h-screen flex-col;
   }
   /* Apply text to title elements */
   h1,

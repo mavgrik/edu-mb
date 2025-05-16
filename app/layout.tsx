@@ -95,7 +95,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="it" suppressHydrationWarning>
+    <html lang="it" suppressHydrationWarning className="scroll-smooth">
       <body className={`${baloo.variable} ${signika.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SplashScreenProvider>

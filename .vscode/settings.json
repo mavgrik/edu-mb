@@ -13,7 +13,12 @@
     "autoplay",
     "timelapse",
     "Benini",
-    "sull"
+    "sull",
+    "performanti",
+    "versionamento",
+    "cicd",
+    "NDWI",
+    "ɱαѵɠ"
   ],
   "cSpell.ignorePaths": [
     "pnpm-lock.yaml",
@@ -25,8 +30,5 @@
     ".vscode-insiders"
   ],
   "editor.tabSize": 2,
-  "editor.detectIndentation": false,
-	"files.associations": {
-		"wrangler.json": "jsonc"
-	}
+  "editor.detectIndentation": false
 }
