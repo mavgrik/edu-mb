@@ -35,10 +35,7 @@ export function Footer() {
         <Link href="/analisi" className="hover:text-primary px-4 py-2 text-sm lg:px-6">
           Analisi dei dati
         </Link>
-        <Link href="/mappe/interattiva" className="hover:text-primary px-4 py-2 text-sm lg:px-6">
-          Mappa interattiva
-        </Link>
-        <Link href="/mappe/timelapse" className="hover:text-primary px-4 py-2 text-sm lg:px-6">
+        <Link href="/timelapse" className="hover:text-primary px-4 py-2 text-sm lg:px-6">
           Time-lapse
         </Link>
         <Link href="/contatti" className="hover:text-primary px-4 py-2 text-sm lg:px-6">

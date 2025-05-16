@@ -74,7 +74,7 @@ export default function Home() {
           </p>
           <div className="mt-4 flex justify-end">
             <Button variant="link" className="border-input bg-background rounded-lg border">
-              <Link href="/mappe/timelapse" className="text-sm">
+              <Link href="/timelapse" className="text-sm">
                 Continua a leggere...
               </Link>
             </Button>
@@ -82,7 +82,7 @@ export default function Home() {
         </div>
 
         <div className="bg-muted ftl:w-2/3 flex w-full items-center justify-center overflow-hidden rounded-lg border p-6">
-          <Link href={'/mappe/timelapse'} className="h-full w-full">
+          <Link href={'/timelapse'} className="h-full w-full">
             <Image
               src={TimeLapse}
               alt="Timelapse Image"

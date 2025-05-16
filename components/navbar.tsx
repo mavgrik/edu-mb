@@ -32,36 +32,16 @@ const navItems: { title: string; href: string; children?: { title: string; href:
     href: '/analisi',
   },
   {
-    title: 'Mappe',
-    href: '',
-    children: [
-      {
-        title: 'Mappa interattiva',
-        href: '/mappe/interattiva',
-        description: 'Visualizza la mappa interattiva',
-      },
-      {
-        title: 'Time-lapse',
-        href: '/mappe/timelapse',
-        description: 'Visualizza il time-lapse sulla siccità in Pianura Padana',
-      },
-    ],
+    title: 'Time-lapse',
+    href: '/timelapse',
   },
   {
-    title: 'Risorse e contatti',
-    href: '',
-    children: [
-      {
-        title: 'Risorse',
-        href: '/risorse',
-        description: 'Link utili, risorse e tecnologie utilizzate',
-      },
-      {
-        title: 'Contatti',
-        href: '/contatti',
-        description: 'Scopri il nostro team e contattaci',
-      },
-    ],
+    title: 'Risorse',
+    href: '/risorse',
+  },
+  {
+    title: 'Contatti',
+    href: '/contatti',
   },
 ];
 
