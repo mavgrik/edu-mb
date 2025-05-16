@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Button } from '@/components/ui/button';
 import Hero from '@/public/images/hero.jpeg';
-import Mappa from '@/public/images/mappa.png';
 import TimeLapse from '@/public/images/timelapse.jpeg';
 
 export default function Home() {
@@ -38,29 +37,6 @@ export default function Home() {
               Continua a leggere...
             </Link>
           </Button>
-        </div>
-      </div>
-
-      <div className="ftl:flex-row-reverse ftl:space-x-6 ftl:space-x-reverse ftl:space-y-0 flex w-full flex-col-reverse items-stretch space-y-6 space-y-reverse space-x-0">
-        <div className="bg-muted ftl:w-1/3 flex w-full flex-col rounded-lg border p-6">
-          <h2 className="mb-4">Mappa Interattiva</h2>
-          <p>
-            Esplora la Pianura Padana e il corso del fiume Po con una mappa interattiva dettagliata e intuitiva. Potrai
-            visualizzare le principali città, le aree agricole, i parchi fluviali e le trasformazioni idrografiche lungo
-            tutto il bacino.
-          </p>
-          <div className="mt-4 flex justify-end">
-            <Button variant="link" className="border-input bg-background rounded-lg border">
-              <Link href="/mappe/interattiva" className="text-sm">
-                Continua a leggere...
-              </Link>
-            </Button>
-          </div>
-        </div>
-
-        {/* TODO: Add image */}
-        <div className="bg-muted ftl:w-2/3 flex w-full items-center justify-center rounded-lg border p-6">
-          <Image src={Mappa} alt="Mappa Image" className="h-auto w-auto rounded-lg object-cover" priority />
         </div>
       </div>
 
