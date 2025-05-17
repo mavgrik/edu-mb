@@ -1,8 +1,8 @@
 import { CloudRain, Users, Waves } from 'lucide-react';
 import Link from 'next/link';
-import PortataPoChart from '@/components/charts/flow-rate';
-import PrecipitazioniChart from '@/components/charts/rainfall';
-import ConsumiIdriciChart from '@/components/charts/water-consumption';
+import {PortataPoChart} from '@/components/charts/flow-rate';
+import {PrecipitazioniChart} from '@/components/charts/rainfall';
+import { ConsumiIdriciChart } from '@/components/charts/water-consumption';
 import { Separator } from '@/components/ui/separator';
 
 //TODO: Add the text content to the charts

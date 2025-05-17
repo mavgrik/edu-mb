@@ -1,9 +1,12 @@
 'use client';
 
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis } from 'recharts';
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
+import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 
-const data = [
+//TODO: Replace with real data
+//TODO: Fix design
+
+const chartData = [
   { mese: 'Gen 2020', portata: 1800 },
   { mese: 'Apr 2020', portata: 2100 },
   { mese: 'Lug 2020', portata: 1200 },
@@ -22,20 +25,22 @@ const data = [
   { mese: 'Ott 2023', portata: 1000 },
 ];
 
-export default function PortataPoChart() {
+
+const chartConfig = {
+  portata: {
+    label: 'Portata (m³/s)',
+    color: 'var(--color-chart-1)',
+  },
+} satisfies ChartConfig;
+
+export function PortataPoChart() {
   return (
     <ChartContainer
-      config={{
-        portata: {
-          label: 'Portata (m³/s)',
-          color: 'hsl(var(--chart-1))',
-        },
-      }}
+      config={chartConfig}
       className="h-full w-full"
     >
-      <ResponsiveContainer width="100%" height="100%">
-        <AreaChart
-          data={data}
+      <AreaChart
+          data={chartData}
           margin={{
             top: 10,
             right: 30,
@@ -55,7 +60,6 @@ export default function PortataPoChart() {
             fillOpacity={0.3}
           />
         </AreaChart>
-      </ResponsiveContainer>
     </ChartContainer>
   );
 }

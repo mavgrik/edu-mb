@@ -1,9 +1,12 @@
 'use client';
 
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, XAxis, YAxis } from 'recharts';
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
+import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 
-const data = [
+//TODO: Replace with real data
+//TODO: Fix design
+
+const chartData = [
   { mese: 'Gen', '2021': 45, '2022': 30, '2023': 25 },
   { mese: 'Feb', '2021': 50, '2022': 35, '2023': 30 },
   { mese: 'Mar', '2021': 65, '2022': 45, '2023': 40 },
@@ -18,28 +21,27 @@ const data = [
   { mese: 'Dic', '2021': 55, '2022': 40, '2023': 35 },
 ];
 
-export default function PrecipitazioniChart() {
+
+const chartConfig = {
+  '2021': {
+    label: '2021',
+    color: 'var(--color-chart-1)',
+  },
+  '2022': {
+    label: '2022',
+    color: 'var(--color-chart-2)',
+  },
+  '2023': {
+    label: '2023',
+    color: 'var(--color-chart-3)',
+  },
+} satisfies ChartConfig;
+
+export function PrecipitazioniChart() {
   return (
-    <ChartContainer
-      config={{
-        '2021': {
-          label: '2021',
-          color: 'hsl(var(--chart-1))',
-        },
-        '2022': {
-          label: '2022',
-          color: 'hsl(var(--chart-2))',
-        },
-        '2023': {
-          label: '2023',
-          color: 'hsl(var(--chart-3))',
-        },
-      }}
-      className="h-full w-full"
-    >
-      <ResponsiveContainer width="100%" height="100%">
+    <ChartContainer config={chartConfig} className="h-full w-full">
         <BarChart
-          data={data}
+          data={chartData}
           margin={{
             top: 20,
             right: 30,
@@ -56,7 +58,6 @@ export default function PrecipitazioniChart() {
           <Bar dataKey="2022" fill="var(--color-2022)" />
           <Bar dataKey="2023" fill="var(--color-2023)" />
         </BarChart>
-      </ResponsiveContainer>
     </ChartContainer>
   );
 }

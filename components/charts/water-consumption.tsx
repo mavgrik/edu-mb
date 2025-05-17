@@ -1,9 +1,12 @@
 'use client';
 
-import { Legend, Pie, PieChart } from 'recharts';
-import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
+import { Pie, PieChart } from 'recharts';
+import { ChartConfig, ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 
-const data = [
+//TODO: Replace with real data
+//TODO: Fix design
+
+const charData = [
   { name: 'Agricoltura', value: 70, fill: 'var(--color-agricoltura)' },
   { name: 'Industria', value: 15, fill: 'var(--color-industria)' },
   { name: 'Civile', value: 15, fill: 'var(--color-civile)' },
@@ -24,18 +27,24 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export default function ConsumiIdriciChart() {
+export function ConsumiIdriciChart() {
   return (
     <ChartContainer config={chartConfig} className="h-full w-full">
       <PieChart>
-        <ChartTooltip content={<ChartTooltipContent />} />
+        <ChartTooltip content={<ChartTooltipContent /> } cursor={false}/>
         <Pie
-          data={data}
+          data={charData}
           dataKey="value"
-          nameKey="name"
+          nameKey="name"    
+          fontSize={16}      
           label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
         />
-        <Legend layout="horizontal" verticalAlign="bottom" align="center" />
+        <ChartLegend
+          content={
+            <ChartLegendContent
+            />
+          }
+        />
       </PieChart>
     </ChartContainer>
   );
