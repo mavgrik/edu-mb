@@ -1,10 +1,11 @@
 'use client';
 
-import { Area, AreaChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis } from 'recharts';
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 
 //TODO: Replace with real data
-//TODO: Fix design
+//TODO: Add time selector
+//FIXME: Tooltip space/design
 
 const chartData = [
   { mese: 'Gen 2020', portata: 1800 },
@@ -25,7 +26,6 @@ const chartData = [
   { mese: 'Ott 2023', portata: 1000 },
 ];
 
-
 const chartConfig = {
   portata: {
     label: 'Portata (m³/s)',
@@ -35,31 +35,20 @@ const chartConfig = {
 
 export function PortataPoChart() {
   return (
-    <ChartContainer
-      config={chartConfig}
-      className="h-full w-full"
-    >
-      <AreaChart
-          data={chartData}
-          margin={{
-            top: 10,
-            right: 30,
-            left: 0,
-            bottom: 0,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="mese" tickFormatter={(value) => value.split(' ')[0]} />
-          <YAxis label={{ value: 'Portata (m³/s)', angle: -90, position: 'insideLeft' }} />
-          <ChartTooltip content={<ChartTooltipContent />} />
-          <Area
-            type="monotone"
-            dataKey="portata"
-            stroke="var(--color-portata)"
-            fill="var(--color-portata)"
-            fillOpacity={0.3}
-          />
-        </AreaChart>
+    <ChartContainer config={chartConfig} className="h-full w-full">
+      <AreaChart data={chartData}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="mese" tickFormatter={(value) => value.split(' ')[0]} />
+        <YAxis />
+        <ChartTooltip content={<ChartTooltipContent />} />
+        <Area
+          type="monotone"
+          dataKey="portata"
+          stroke="var(--color-portata)"
+          fill="var(--color-portata)"
+          fillOpacity={0.3}
+        />
+      </AreaChart>
     </ChartContainer>
   );
 }

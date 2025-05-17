@@ -1,10 +1,17 @@
 'use client';
 
-import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, XAxis, YAxis } from 'recharts';
-import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts';
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
+  ChartTooltip,
+  ChartTooltipContent,
+} from '@/components/ui/chart';
 
 //TODO: Replace with real data
-//TODO: Fix design
+//FIXME: Tooltip space/design
 
 const chartData = [
   { mese: 'Gen', '2021': 45, '2022': 30, '2023': 25 },
@@ -20,7 +27,6 @@ const chartData = [
   { mese: 'Nov', '2021': 65, '2022': 55, '2023': 50 },
   { mese: 'Dic', '2021': 55, '2022': 40, '2023': 35 },
 ];
-
 
 const chartConfig = {
   '2021': {
@@ -39,25 +45,17 @@ const chartConfig = {
 
 export function PrecipitazioniChart() {
   return (
-    <ChartContainer config={chartConfig} className="h-full w-full">
-        <BarChart
-          data={chartData}
-          margin={{
-            top: 20,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="mese" />
-          <YAxis label={{ value: 'Precipitazioni (mm)', angle: -90, position: 'insideLeft' }} />
-          <ChartTooltip content={<ChartTooltipContent />} />
-          <Legend />
-          <Bar dataKey="2021" fill="var(--color-2021)" />
-          <Bar dataKey="2022" fill="var(--color-2022)" />
-          <Bar dataKey="2023" fill="var(--color-2023)" />
-        </BarChart>
+    <ChartContainer config={chartConfig} className="h-full max-h-128 w-full">
+      <BarChart data={chartData}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="mese" />
+        <YAxis />
+        <ChartTooltip content={<ChartTooltipContent />} />
+        <ChartLegend content={<ChartLegendContent />} />
+        <Bar dataKey="2021" fill="var(--color-2021)" />
+        <Bar dataKey="2022" fill="var(--color-2022)" />
+        <Bar dataKey="2023" fill="var(--color-2023)" />
+      </BarChart>
     </ChartContainer>
   );
 }
