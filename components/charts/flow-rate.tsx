@@ -5,25 +5,25 @@ import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '
 
 //TODO: Replace with real data
 //TODO: Add time selector
-//FIXME: Tooltip space/design
+//FIXME: Tooltip space
 
 const chartData = [
-  { mese: 'Gen 2020', portata: 1800 },
-  { mese: 'Apr 2020', portata: 2100 },
-  { mese: 'Lug 2020', portata: 1200 },
-  { mese: 'Ott 2020', portata: 1500 },
-  { mese: 'Gen 2021', portata: 1700 },
-  { mese: 'Apr 2021', portata: 1900 },
-  { mese: 'Lug 2021', portata: 900 },
-  { mese: 'Ott 2021', portata: 1300 },
-  { mese: 'Gen 2022', portata: 1400 },
-  { mese: 'Apr 2022', portata: 1600 },
-  { mese: 'Lug 2022', portata: 500 },
-  { mese: 'Ott 2022', portata: 1100 },
-  { mese: 'Gen 2023', portata: 1300 },
-  { mese: 'Apr 2023', portata: 1500 },
-  { mese: 'Lug 2023', portata: 600 },
-  { mese: 'Ott 2023', portata: 1000 },
+  { mese: 'Gennaio 2020', portata: 1800 },
+  { mese: 'Aprile 2020', portata: 2100 },
+  { mese: 'Luglio 2020', portata: 1200 },
+  { mese: 'Ottobre 2020', portata: 1500 },
+  { mese: 'Gennaio 2021', portata: 1700 },
+  { mese: 'Aprile 2021', portata: 1900 },
+  { mese: 'Luglio 2021', portata: 900 },
+  { mese: 'Ottobre 2021', portata: 1300 },
+  { mese: 'Gennaio 2022', portata: 1400 },
+  { mese: 'Aprile 2022', portata: 1600 },
+  { mese: 'Luglio 2022', portata: 500 },
+  { mese: 'Ottobre 2022', portata: 1100 },
+  { mese: 'Gennaio 2023', portata: 1300 },
+  { mese: 'Aprile 2023', portata: 1500 },
+  { mese: 'Luglio 2023', portata: 600 },
+  { mese: 'Ottobre 2023', portata: 1000 },
 ];
 
 const chartConfig = {
@@ -35,12 +35,12 @@ const chartConfig = {
 
 export function PortataPoChart() {
   return (
-    <ChartContainer config={chartConfig} className="h-full w-full">
+    <ChartContainer config={chartConfig} className="h-full w-full min-h-64">
       <AreaChart data={chartData}>
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="mese" tickFormatter={(value) => value.split(' ')[0]} />
-        <YAxis />
-        <ChartTooltip content={<ChartTooltipContent />} />
+        <XAxis tickMargin={10} dataKey="mese" tickFormatter={(value) => value.split(' ')[0].slice(0, 3)} />
+        <YAxis tickMargin={10} width={50}/>
+        <ChartTooltip content={<ChartTooltipContent hideIndicator/>} />
         <Area
           type="monotone"
           dataKey="portata"
