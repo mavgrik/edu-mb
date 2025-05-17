@@ -29,7 +29,7 @@ export default function timelapse() {
           <p className="ftl:columns-2 columns-1 gap-4 text-pretty">
             In questo timelapse NDWI della Pianura Padana — centrato sul fiume Po — è chiaramente visibile
             l&apos;evoluzione della superficie d&apos;acqua nel tempo. Il colore blu intenso rappresenta l’acqua, mentre
-            le tonalità verdi indicano suolo vegetato o coltivato. L’immagine iniziale, datata 8 gennaio 2022, mostra un
+            le tonalità verdi indicano suolo vegetato o coltivato. L’immagine iniziale, datata 16 agosto 2021, mostra un
             fiume Po ancora relativamente pieno, con alveo largo e numerosi specchi d’acqua laterali. Tuttavia, man mano
             che si avanza nel tempo, è possibile notare una progressiva riduzione dell’ampiezza del corso d’acqua e
             delle aree umide circostanti. In alcune fasi si osserva addirittura un’interruzione quasi completa della
