@@ -1,11 +1,6 @@
-import { Home } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import PortataPoChart from '@/components/flow_rate_po';
-import PrecipitazioniChart from '@/components/rainfall';
-import { Button } from '@/components/ui/button';
-import ConsumiIdriciChart from '@/components/water_consumption_graph';
-import TimeLapse from '@/public/images/timelapse.jpeg'; // Update the path and extension as needed
+import PortataPoChart from '@/components/charts/flow-rate';
+import PrecipitazioniChart from '@/components/charts/rainfall';
+import ConsumiIdriciChart from '@/components/charts/water-consumption';
 
 //TODO: Make the page
 
