@@ -1,7 +1,14 @@
 'use client';
 
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from 'recharts';
-import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
+  ChartTooltip,
+  ChartTooltipContent,
+} from '@/components/ui/chart';
 
 const chartData = [
   { mese: 'Gennaio', '2017': 883, '2018': 992, '2022': 852, '2023': 807 },
@@ -45,6 +52,7 @@ export function PortataPoChart() {
         <XAxis tickMargin={10} dataKey="mese" tickFormatter={(value) => value.split(' ')[0].slice(0, 3)} />
         <YAxis tickMargin={10} width={50} />
         <ChartTooltip content={<ChartTooltipContent />} />
+        <ChartLegend content={<ChartLegendContent />} />
         <Area type="natural" dataKey="2017" stroke="var(--color-2017)" fill="var(--color-2017)" fillOpacity={0.3} />
         <Area type="natural" dataKey="2018" stroke="var(--color-2018)" fill="var(--color-2018)" fillOpacity={0.3} />
         <Area type="natural" dataKey="2022" stroke="var(--color-2022)" fill="var(--color-2022)" fillOpacity={0.3} />
