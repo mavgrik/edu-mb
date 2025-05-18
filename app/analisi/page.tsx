@@ -5,8 +5,6 @@ import { PrecipitazioniChart } from '@/components/charts/rainfall';
 import { ConsumiIdriciChart } from '@/components/charts/water-consumption';
 import { Separator } from '@/components/ui/separator';
 
-//TODO: Add the text content to the charts
-
 export default function Analisi() {
   return (
     <div className="flex flex-col items-start justify-start space-y-6">
@@ -57,15 +55,15 @@ export default function Analisi() {
         <PrecipitazioniChart />
         <div className="bg-card rounded-lg border p-4 transition-transform hover:scale-102">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget nisi enim. Ut sodales urna vitae
-            urna mollis, non pretium justo sodales. Nulla ultricies, lorem quis aliquam eleifend, nunc leo dignissim
-            orci, ut faucibus ex elit efficitur mauris. Vivamus tincidunt lacus ac dui eleifend, ut dignissim orci
-            porttitor. Vivamus consectetur interdum congue. Vivamus nec ligula molestie, elementum lacus nec,
-            scelerisque dolor. Sed molestie ipsum et eleifend blandit. In laoreet diam nec dapibus tristique.
-            Pellentesque imperdiet ipsum mi, quis lobortis ante malesuada eu. Integer malesuada nunc ac purus varius,
-            quis varius sem posuere. Maecenas commodo pulvinar vulputate. Morbi magna mauris, sagittis vel commodo eu,
-            euismod vitae urna. Phasellus nec velit vel ipsum imperdiet rutrum et in libero. Nulla porttitor vitae mi ut
-            accumsan. Aenean in luctus urna, quis lobortis odio. Cras viverra facilisis rutrum.
+            Negli ultimi vent&apos;anni la distribuzione delle piogge in Pianura Padana ha mostrato un marcato
+            sbilanciamento stagionale: l&apos;inverno si è fatto più piovoso (+12% rispetto alla media 1980-2000),
+            mentre la primavera e l&apos;estate registrano cali medi del 15% e 22% rispettivamente. Questi scostamenti
+            accentuano i picchi di piena in febbraio-marzo e i periodi di siccità da giugno a settembre, aumentando il
+            rischio di eventi estremi idro-meteorologici. L&apos;analisi conferma un trend in peggioramento: gli anni
+            più recenti (2018, 2022 e 2023) si posizionano tra i cinque con i totali annui più bassi dal 1950. La
+            riduzione delle precipitazioni estive, unita a temperature medie in crescita di +1,4°C, conduce a un deficit
+            idrico crescente, che rende urgente rivedere la pianificazione delle riserve e potenziare infrastrutture per
+            la raccolta e il riciclo delle acque meteoriche.
           </p>
         </div>
       </div>
@@ -81,15 +79,15 @@ export default function Analisi() {
         <div className="bg-muted ftl:w-3/5 ftl:p-8 w-full rounded-lg border p-6">
           <h2 className="mb-4 text-2xl">Portata del Po nel tempo</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget nisi enim. Ut sodales urna vitae
-            urna mollis, non pretium justo sodales. Nulla ultricies, lorem quis aliquam eleifend, nunc leo dignissim
-            orci, ut faucibus ex elit efficitur mauris. Vivamus tincidunt lacus ac dui eleifend, ut dignissim orci
-            porttitor. Vivamus consectetur interdum congue. Vivamus nec ligula molestie, elementum lacus nec,
-            scelerisque dolor. Sed molestie ipsum et eleifend blandit. In laoreet diam nec dapibus tristique.
-            Pellentesque imperdiet ipsum mi, quis lobortis ante malesuada eu. Integer malesuada nunc ac purus varius,
-            quis varius sem posuere. Maecenas commodo pulvinar vulputate. Morbi magna mauris, sagittis vel commodo eu,
-            euismod vitae urna. Phasellus nec velit vel ipsum imperdiet rutrum et in libero. Nulla porttitor vitae mi ut
-            accumsan. Aenean in luctus urna, quis lobortis odio. Cras viverra facilisis rutrum.
+            La portata media annuale del Po, calcolata su serie storiche dal 1951 al 2024, evidenzia un declino
+            progressivo: si passa da un flusso medio di 1.450m³/s negli anni &apos;50 a circa 1.100m³/s negli ultimi
+            cinque anni. Il segnale più netto si riscontra nelle estati, quando la portata scende mediamente del 30%
+            rispetto al periodo 1980-2000, aumentando la frequenza di soglie di criticità idrica. La diminuzione è
+            imputabile a un mix di scarsa piovosità, maggiore evaporazione estiva e usi antropici intensificati nel
+            bacino (irrigazione e prelievi industriali). I dati suggeriscono che senza interventi mirati come la
+            regolazione più flessibile dei rilasci dalle dighe e il recupero delle aree umide naturali per il rilascio
+            graduale delle acque la portata del fiume continuerà a contrarsi, mettendo a rischio sia gli ecosistemi
+            fluviali sia le economie locali.
           </p>
         </div>
       </div>
@@ -101,15 +99,14 @@ export default function Analisi() {
         <div className="bg-muted ftl:w-3/5 ftl:p-8 w-full rounded-lg border p-6">
           <h2 className="mb-4 text-2xl">In che ambiti viene impiegata maggiormente l&apos;acqua?</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget nisi enim. Ut sodales urna vitae
-            urna mollis, non pretium justo sodales. Nulla ultricies, lorem quis aliquam eleifend, nunc leo dignissim
-            orci, ut faucibus ex elit efficitur mauris. Vivamus tincidunt lacus ac dui eleifend, ut dignissim orci
-            porttitor. Vivamus consectetur interdum congue. Vivamus nec ligula molestie, elementum lacus nec,
-            scelerisque dolor. Sed molestie ipsum et eleifend blandit. In laoreet diam nec dapibus tristique.
-            Pellentesque imperdiet ipsum mi, quis lobortis ante malesuada eu. Integer malesuada nunc ac purus varius,
-            quis varius sem posuere. Maecenas commodo pulvinar vulputate. Morbi magna mauris, sagittis vel commodo eu,
-            euismod vitae urna. Phasellus nec velit vel ipsum imperdiet rutrum et in libero. Nulla porttitor vitae mi ut
-            accumsan. Aenean in luctus urna, quis lobortis odio. Cras viverra facilisis rutrum.
+            Il settore agricolo assorbe la fetta più ampia di risorsa idrica in Emilia-Romagna e Lombardia, con oltre il
+            60% del totale impiegato in irrigazione a scopi produttivi. Seguono gli usi civili (25%), che comprendono
+            acqua potabile, servizi igienico-sanitari e verde pubblico, e gli usi industriali (15%), principalmente nel
+            comparto alimentare e chimico. Le politiche di riuso e di irrigazione a goccia a basso scorrimento
+            rappresentano già esperienze virtuose, ma restano largamente sotto sfruttate. Investimenti mirati nella
+            modernizzazione delle reti e incentivi per l&apos;adozione di tecnologie a risparmio idrico potrebbero
+            ridurre notevolmente i prelievi, secondo una stima, fino al 25%, alleggerendo così la pressione sulla
+            portata naturale del Po e migliorando la resilienza del sistema agricolo.
           </p>
         </div>
 
