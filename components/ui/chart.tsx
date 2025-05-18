@@ -263,9 +263,7 @@ function ChartLegendContent({
                 }}
               />
             )}
-            <p className="text-sm">
-              {itemConfig?.label}
-            </p>
+            <p className="text-sm">{itemConfig?.label}</p>
           </div>
         );
       })}
