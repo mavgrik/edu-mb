@@ -60,7 +60,7 @@ export default function Analisi() {
             mentre la primavera e l&apos;estate registrano cali medi del 15% e 22% rispettivamente. Questi scostamenti
             accentuano i picchi di piena in febbraio-marzo e i periodi di siccità da giugno a settembre, aumentando il
             rischio di eventi estremi idro-meteorologici. L&apos;analisi conferma un trend in peggioramento: gli anni
-            più recenti (2017, 2018, 2022 e 2023) si posizionano tra i cinque con i totali annui più bassi dal 1950. La
+            più recenti (2017 e 2018, 2022 e 2023) si posizionano tra i cinque con i totali annui più bassi dal 1950. La
             riduzione delle precipitazioni estive, unita a temperature medie in crescita di +1,4°C, conduce a un deficit
             idrico crescente, che rende urgente rivedere la pianificazione delle riserve e potenziare infrastrutture per
             la raccolta e il riciclo delle acque meteoriche.
