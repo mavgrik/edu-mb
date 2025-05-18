@@ -1,16 +1,7 @@
 'use client';
 
-import { Pie, PieChart } from 'recharts';
-import {
-  ChartConfig,
-  ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
-  ChartTooltip,
-  ChartTooltipContent,
-} from '@/components/ui/chart';
-
-//FIXME: ChartLegend
+import { Legend, Pie, PieChart } from 'recharts';
+import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 
 const charData = [
   { name: 'Agricoltura', value: 60, fill: 'var(--color-agricoltura)' },
@@ -38,7 +29,7 @@ export function ConsumiIdriciChart() {
     <ChartContainer config={chartConfig} className="h-full w-full">
       <PieChart>
         <ChartTooltip content={<ChartTooltipContent />} />
-        <ChartLegend content={<ChartLegendContent />} />
+        <Legend />
         <Pie data={charData} dataKey="value" />
       </PieChart>
     </ChartContainer>
