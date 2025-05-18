@@ -11,7 +11,6 @@ import {
 } from '@/components/ui/chart';
 
 //FIXME: ChartLegend
-//FIXME: Tooltip space
 //FIXME: Responsive
 //FIXME: Labels
 

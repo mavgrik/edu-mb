@@ -3,67 +3,37 @@
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 
-//TODO: Add time selector
-//FIXME: Tooltip space
-
 const chartData = [
-  { mese: 'Gennaio 2017', portata: 883 },
-  { mese: 'Febbraio 2017', portata: 1059 },
-  { mese: 'Marzo 2017', portata: 1007 },
-  { mese: 'Aprile 2017', portata: 927 },
-  { mese: 'Maggio 2017', portata: 1185 },
-  { mese: 'Giugno 2017', portata: 730 },
-  { mese: 'Luglio 2017', portata: 682 },
-  { mese: 'Agosto 2017', portata: 544 },
-  { mese: 'Settembre 2017', portata: 961 },
-  { mese: 'Ottobre 2017', portata: 742 },
-  { mese: 'Novembre 2017', portata: 758 },
-  { mese: 'Dicembre 2017', portata: 902 },
-
-  { mese: 'Gennaio 2018', portata: 992 },
-  { mese: 'Febbraio 2018', portata: 950 },
-  { mese: 'Marzo 2018', portata: 1654 },
-  { mese: 'Aprile 2018', portata: 1823 },
-  { mese: 'Maggio 2018', portata: 2506 },
-  { mese: 'Giugno 2018', portata: 2092 },
-  { mese: 'Luglio 2018', portata: 905 },
-  { mese: 'Agosto 2018', portata: 738 },
-  { mese: 'Settembre 2018', portata: 969 },
-  { mese: 'Ottobre 2018', portata: 971 },
-  { mese: 'Novembre 2018', portata: 3409 },
-  { mese: 'Dicembre 2018', portata: 1217 },
-
-  { mese: 'Gennaio 2022', portata: 852 },
-  { mese: 'Febbraio 2022', portata: 674 },
-  { mese: 'Marzo 2022', portata: 533 },
-  { mese: 'Aprile 2022', portata: 534 },
-  { mese: 'Maggio 2022', portata: 605 },
-  { mese: 'Giugno 2022', portata: 257 },
-  { mese: 'Luglio 2022', portata: 160 },
-  { mese: 'Agosto 2022', portata: 282 },
-  { mese: 'Settembre 2022', portata: 465 },
-  { mese: 'Ottobre 2022', portata: 578 },
-  { mese: 'Novembre 2022', portata: 796 },
-  { mese: 'Dicembre 2022', portata: 872 },
-
-  { mese: 'Gennaio 2023', portata: 807 },
-  { mese: 'Febbraio 2023', portata: 570 },
-  { mese: 'Marzo 2023', portata: 570 },
-  { mese: 'Aprile 2023', portata: 382 },
-  { mese: 'Maggio 2023', portata: 1350 },
-  { mese: 'Giugno 2023', portata: 1074 },
-  { mese: 'Luglio 2023', portata: 509 },
-  { mese: 'Agosto 2023', portata: 447 },
-  { mese: 'Settembre 2023', portata: 1133 },
-  { mese: 'Ottobre 2023', portata: 1313 },
-  { mese: 'Novembre 2023', portata: 2280 },
-  { mese: 'Dicembre 2023', portata: 1220 },
+  { mese: 'Gennaio', '2017': 883, '2018': 992, '2022': 852, '2023': 807 },
+  { mese: 'Febbraio', '2017': 1059, '2018': 950, '2022': 674, '2023': 570 },
+  { mese: 'Marzo', '2017': 1007, '2018': 1654, '2022': 533, '2023': 570 },
+  { mese: 'Aprile', '2017': 927, '2018': 1823, '2022': 534, '2023': 382 },
+  { mese: 'Maggio', '2017': 1185, '2018': 2506, '2022': 605, '2023': 1350 },
+  { mese: 'Giugno', '2017': 730, '2018': 2092, '2022': 257, '2023': 1074 },
+  { mese: 'Luglio', '2017': 682, '2018': 905, '2022': 160, '2023': 509 },
+  { mese: 'Agosto', '2017': 544, '2018': 738, '2022': 282, '2023': 447 },
+  { mese: 'Settembre', '2017': 961, '2018': 969, '2022': 465, '2023': 1133 },
+  { mese: 'Ottobre', '2017': 742, '2018': 971, '2022': 578, '2023': 1313 },
+  { mese: 'Novembre', '2017': 758, '2018': 3409, '2022': 796, '2023': 2280 },
+  { mese: 'Dicembre', '2017': 902, '2018': 1217, '2022': 872, '2023': 1220 },
 ];
 
 const chartConfig = {
-  portata: {
-    label: 'Portata (m³/s)',
+  '2017': {
+    label: '2017',
     color: 'var(--color-chart-1)',
+  },
+  '2018': {
+    label: '2018',
+    color: 'var(--color-chart-2)',
+  },
+  '2022': {
+    label: '2022',
+    color: 'var(--color-chart-3)',
+  },
+  '2023': {
+    label: '2023',
+    color: 'var(--color-chart-4)',
   },
 } satisfies ChartConfig;
 
@@ -74,14 +44,11 @@ export function PortataPoChart() {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis tickMargin={10} dataKey="mese" tickFormatter={(value) => value.split(' ')[0].slice(0, 3)} />
         <YAxis tickMargin={10} width={50} />
-        <ChartTooltip content={<ChartTooltipContent hideIndicator />} />
-        <Area
-          type="monotone"
-          dataKey="portata"
-          stroke="var(--color-portata)"
-          fill="var(--color-portata)"
-          fillOpacity={0.3}
-        />
+        <ChartTooltip content={<ChartTooltipContent />} />
+        <Area type="natural" dataKey="2017" stroke="var(--color-2017)" fill="var(--color-2017)" fillOpacity={0.3} />
+        <Area type="natural" dataKey="2018" stroke="var(--color-2018)" fill="var(--color-2018)" fillOpacity={0.3} />
+        <Area type="natural" dataKey="2022" stroke="var(--color-2022)" fill="var(--color-2022)" fillOpacity={0.3} />
+        <Area type="natural" dataKey="2023" stroke="var(--color-2023)" fill="var(--color-2023)" fillOpacity={0.3} />
       </AreaChart>
     </ChartContainer>
   );
