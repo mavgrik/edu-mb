@@ -10,14 +10,15 @@ import {
   ChartTooltipContent,
 } from '@/components/ui/chart';
 
-//TODO: Replace with real data
-//TODO: Fix design
-//FIXME: Tooltip space/design
+//FIXME: ChartLegend
+//FIXME: Tooltip space
+//FIXME: Responsive
+//FIXME: Labels
 
 const charData = [
-  { name: 'Agricoltura', value: 70, fill: 'var(--color-agricoltura)' },
-  { name: 'Industria', value: 15, fill: 'var(--color-industria)' },
-  { name: 'Civile', value: 15, fill: 'var(--color-civile)' },
+  { name: 'Agricoltura', value: 60, fill: 'var(--color-agricoltura)' },
+  { name: 'Civile', value: 25, fill: 'var(--color-civile)' },
+  { name: 'Industriale', value: 15, fill: 'var(--color-industria)' },
 ];
 
 const chartConfig = {
