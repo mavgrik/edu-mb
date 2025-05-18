@@ -11,8 +11,6 @@ import {
 } from '@/components/ui/chart';
 
 //FIXME: ChartLegend
-//FIXME: Responsive
-//FIXME: Labels
 
 const charData = [
   { name: 'Agricoltura', value: 60, fill: 'var(--color-agricoltura)' },
@@ -25,12 +23,12 @@ const chartConfig = {
     label: 'Agricoltura',
     color: 'var(--color-chart-1)',
   },
-  industria: {
-    label: 'Industria',
-    color: 'var(--color-chart-2)',
-  },
   civile: {
     label: 'Civile',
+    color: 'var(--color-chart-2)',
+  },
+  industria: {
+    label: 'Industria',
     color: 'var(--color-chart-3)',
   },
 } satisfies ChartConfig;
@@ -39,15 +37,9 @@ export function ConsumiIdriciChart() {
   return (
     <ChartContainer config={chartConfig} className="h-full w-full">
       <PieChart>
-        <ChartTooltip content={<ChartTooltipContent />} cursor={false} />
-        <Pie
-          data={charData}
-          dataKey="value"
-          nameKey="name"
-          fontSize={16}
-          label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
-        />
+        <ChartTooltip content={<ChartTooltipContent />} />
         <ChartLegend content={<ChartLegendContent />} />
+        <Pie data={charData} dataKey="value" />
       </PieChart>
     </ChartContainer>
   );
