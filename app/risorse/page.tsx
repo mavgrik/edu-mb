@@ -6,7 +6,7 @@ import { Separator } from '@/components/ui/separator';
 export default function ResourcesPage() {
   return (
     <div className="flex flex-col items-start justify-start space-y-6">
-      <div className="ftl:flex-row ftl:space-x-6 ftl:space-y-0 flex w-full flex-col items-stretch justify-between space-y-6 space-x-0">
+      <div className="ftl:flex-row ftl:space-x-6 ftl:space-y-0 flex w-full flex-col items-start justify-between space-y-6 space-x-0">
         <div className="ftl:w-2/5 flex flex-col items-start justify-start">
           <h1 className="mb-4 text-3xl">Risorse</h1>
           <p className="text-muted-foreground">
